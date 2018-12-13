@@ -1,4 +1,5 @@
 
+
 cc.Class({
     extends: cc.Component,
 
@@ -9,7 +10,9 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-
+        cc.loginEventM.connect("ws://192.168.0.18:20001", () => {
+            cc.log("已连接")
+        });
     },
 
     start () {
