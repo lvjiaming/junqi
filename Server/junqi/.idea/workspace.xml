@@ -28,21 +28,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hallServer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hallServer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hallServer/hallServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+            <state relative-caret-position="297">
+              <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameServer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gameServer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gameServer/gameServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+            <state relative-caret-position="270">
+              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,8 +51,8 @@
       <file leaf-file-name="start.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/start.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+            <state relative-caret-position="262">
+              <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -86,6 +86,7 @@
       <find>gameServer</find>
       <find>conso</find>
       <find>wsServer</find>
+      <find>info</find>
     </findStrings>
     <dirStrings>
       <dir>D:\junqi\junqi\Server\junqi</dir>
@@ -98,9 +99,9 @@
         <option value="$PROJECT_DIR$/node_modules/ajax/lib/ajax.js" />
         <option value="$PROJECT_DIR$/Server.js" />
         <option value="$PROJECT_DIR$/config/common.js" />
+        <option value="$PROJECT_DIR$/hallServer/hallServer.js" />
         <option value="$PROJECT_DIR$/config/serverConfig.json" />
         <option value="$PROJECT_DIR$/start.js" />
-        <option value="$PROJECT_DIR$/hallServer/hallServer.js" />
         <option value="$PROJECT_DIR$/gameServer/gameServer.js" />
       </list>
     </option>
@@ -141,7 +142,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -213,6 +213,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,7 +222,7 @@
     <property name="js.eslint.eslintPackage" value="C:\Users\Administrator\AppData\Roaming\npm\node_modules\eslint" />
     <property name="js.eslint.nodeInterpreter" value="project" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/git_pro/chat_webSocket/WebSocketPro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js-jscs-nodeInterpreter" value="D:\node\node.exe" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptPreferStrict" value="false" />
@@ -330,12 +331,13 @@
       <option name="presentableId" value="Default" />
       <updated>1544671052441</updated>
       <workItem from="1544671053595" duration="12044000" />
-      <workItem from="1544691440078" duration="1905000" />
+      <workItem from="1544691440078" duration="2496000" />
+      <workItem from="1544752190439" duration="9756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13949000" />
+    <option name="totallyTimeSpent" value="24296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -370,6 +372,46 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/config/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hallServer/hallServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameServer/gameServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/start.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/serverConfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="49" lean-forward="false" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -416,7 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1945">
           <caret line="201" column="4" lean-forward="false" selection-start-line="201" selection-start-column="3" selection-end-line="201" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -441,14 +482,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/jquery/src/ajax.js" />
     <entry file="file://$PROJECT_DIR$/hallServer.js" />
     <entry file="file://$PROJECT_DIR$/gameServer.js" />
-    <entry file="file://$PROJECT_DIR$/config/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/serverConfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -457,26 +490,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hallServer/hallServer.js">
+    <entry file="file://$PROJECT_DIR$/config/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+        <state relative-caret-position="162">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/start.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        <state relative-caret-position="262">
+          <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gameServer/gameServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+        <state relative-caret-position="270">
+          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/wcgame/assets/Script/ydr/Common/LoadDirRes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hallServer/hallServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
           <folding />
         </state>
       </provider>

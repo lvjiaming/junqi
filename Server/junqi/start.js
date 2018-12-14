@@ -30,6 +30,7 @@ function readText(serverData) {
                 const gameid = parseInt(dataList[0]);
                 info.ip = dataList[1];
                 info.port = dataList[2];
+                info.name = dataList[3];
                 serverData.gameServer[gameid] = info;
             });
             fs.writeFile("./config/serverConfig.json", JSON.stringify(serverData), (err) => {
