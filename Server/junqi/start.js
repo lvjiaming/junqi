@@ -5,7 +5,8 @@
 const hallServer = require("./hallServer/hallServer");
 const gameServer = require("./gameServer/gameServer");
 const fs = require("fs");
-
+userMgr = require("./common/userInfoMgr");
+utils = require("./common/utils");
 serverConfig = null;
 
 /**
