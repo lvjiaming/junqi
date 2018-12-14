@@ -71,7 +71,7 @@ userInfoMgr.removeUser = (user, cb) => {
  *  获取一个玩家
  * @param id
  */
-userInfoMgr.getUserById = (id, cb) => {
+userInfoMgr.getUserByName = (name, cb) => {
     fs.readFile("./common/userInfo.json", (err, data) => {
         if (err) {
             console.error(err);
@@ -83,7 +83,7 @@ userInfoMgr.getUserById = (id, cb) => {
             }
             let getUser = null;
             for (let us in dataObj) {
-                if (us && us == id) {
+                if (dataObj[us] && dataObj[us].name == name) {
                     getUser = dataObj[us];
                 }
             }
@@ -108,7 +108,6 @@ userInfoMgr.changeUser = (user, cb) => {
                 dataObj = JSON.parse(dataStr);
             }
             for (let us in dataObj) {
-                console.log(us)
                 if (us && us == user.id) {
                     dataObj[us] = user;
                 }

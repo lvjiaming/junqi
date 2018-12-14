@@ -10,7 +10,7 @@ module.exports = hallServer = function (config) {
     });
     this.hs.on('connection', (ws) => {  //  注册连接上的事件
         console.log(`one client has connected(hallServer)`);
-        // userMgr.changeUser({id: 3, name: "h哈哈"}, (data) => {
+        // userMgr.getUserByName("哈哈", (data) => {
         //     console.log(data);
         // });
         ws.on('message', (message) => {  //  接收客户端的消息
