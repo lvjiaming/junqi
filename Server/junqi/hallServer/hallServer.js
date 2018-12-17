@@ -8,6 +8,7 @@ module.exports = hallServer = function (config) {
         host: config.ip,
         port: config.port
     });
+    // console.log(this.hs)
     this.hs.on('connection', (ws) => {  //  注册连接上的事件
         console.log(`one client has connected(hallServer)`);
         // userMgr.getUserByName("哈哈", (data) => {
@@ -26,5 +27,8 @@ module.exports = hallServer = function (config) {
     });
     this.hs.on('close', (ws) => {
         console.log(`server has close(hallServer)`);
+    });
+    this.hs.on('listening', () => {
+        console.log(`server has listening(hallServer)`);
     });
 };

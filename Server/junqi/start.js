@@ -3,16 +3,22 @@
  * 准备js
  */
 const hallServer = require("./hallServer/hallServer");
-const gameServer = require("./gameServer/gameServer");
+gameServerMgr = require('./gameServer');
 const fs = require("fs");
 userMgr = require("./common/userInfoMgr");
 utils = require("./common/utils");
+updataServerConfig = require("./common/updataServerConfig");
 serverConfig = null;
 
 /**
  *  读取txt里的文件，用于更新serverConfig.json里的内容
  * @param serverData
  */
+module.exports = {
+    start() {
+        readJson(readText);
+    },
+};
 function readText(serverData) {
     fs.readFile("./config.txt", (err, data) => {
         if (err) {
@@ -21,7 +27,9 @@ function readText(serverData) {
             if (!serverData) {
                 serverData = {};
             }
-            serverData.gameServer = {};
+            if (!serverData.gameServer) {
+                serverData.gameServer = {};
+            }
             const dataStr = data.toString();
             const listStr = dataStr.split("\r\n");
             console.log("获取到开启服务器的列表\n", listStr);
@@ -32,7 +40,11 @@ function readText(serverData) {
                 info.ip = dataList[1];
                 info.port = dataList[2];
                 info.name = dataList[3];
-                serverData.gameServer[gameid] = info;
+                info.gameid = gameid;
+                if (!serverData.gameServer[gameid] || (serverData.gameServer[gameid] && !serverData.gameServer[gameid].isopen)) {
+                    info.isopen = false;
+                    serverData.gameServer[gameid] = info;
+                }
             });
             fs.writeFile("./config/serverConfig.json", JSON.stringify(serverData), (err) => {
                 if (err) {
@@ -60,7 +72,6 @@ function readJson(cb) {
         }
     });
 };
-readJson(readText);
 
 /**
  *  所有准备完成后，开启服务器
@@ -68,6 +79,6 @@ readJson(readText);
 function startOpenServer() {
     if (serverConfig) {
         const hs = new hallServer(serverConfig.hallServer);
-        const gs = new gameServer(serverConfig.gameServer);
+        // gameServerMgr.startGameServer(1);
     }
 }

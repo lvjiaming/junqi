@@ -48,12 +48,10 @@ userInfoMgr.removeUser = (user, cb) => {
             }
             console.log(dataObj);
             for (let us in dataObj) {
-                console.log(us)
                 if (us && us == user) {
                     delete dataObj[us];
                 }
             }
-            console.log(dataObj);
             fs.writeFile("./common/userInfo.json", JSON.stringify(dataObj), (err) => {
                 if (err) {
                     console.error("写入失败",err);
