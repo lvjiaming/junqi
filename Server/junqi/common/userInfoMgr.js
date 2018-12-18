@@ -26,6 +26,7 @@ userInfoMgr.insertUser = (user, cb) => {
                     console.log("写入成功");
                 }
             });
+            console.log("新增一个玩家", user);
             if (cb && cb instanceof Function) {
                 cb(dataObj);
             }
@@ -117,6 +118,26 @@ userInfoMgr.changeUser = (user, cb) => {
                     console.log("写入成功");
                 }
             });
+            if (cb && cb instanceof Function) {
+                cb(dataObj);
+            }
+        }
+    });
+};
+/**
+ * 得到用户列表
+ * @param cb
+ */
+userInfoMgr.getUserList = (cb) => {
+    fs.readFile("./common/userInfo.json", (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            const dataStr = data.toString();
+            let dataObj = {};
+            if (dataStr) {
+                dataObj = JSON.parse(dataStr);
+            }
             if (cb && cb instanceof Function) {
                 cb(dataObj);
             }

@@ -8,17 +8,38 @@ const fs = require("fs");
 userMgr = require("./common/userInfoMgr");
 utils = require("./common/utils");
 updataServerConfig = require("./common/updataServerConfig");
+commonCfg = require("./config/common");
+userMgr = require("./common/userInfoMgr");
 serverConfig = null;
 
 /**
  *  读取txt里的文件，用于更新serverConfig.json里的内容
  * @param serverData
  */
-module.exports = {
+module.exports = Start = {
     start() {
         readJson(readText);
     },
+    startHallServer() {
+        startOpenServer();
+    },
+    closeHallServer() {
+        if (this.hs) {
+            this.hs.hs.close();
+        }
+    },
+    restartHallServer() {
+        if (this.hs) {
+            this.hs.hs.close(() => {
+                startOpenServer();
+            })
+        } else {
+            startOpenServer();
+        }
+    },
+    // start()
 };
+Start.start();
 function readText(serverData) {
     fs.readFile("./config.txt", (err, data) => {
         if (err) {
@@ -78,7 +99,7 @@ function readJson(cb) {
  */
 function startOpenServer() {
     if (serverConfig) {
-        const hs = new hallServer(serverConfig.hallServer);
+        Start.hs = new hallServer(serverConfig.hallServer);
         // gameServerMgr.startGameServer(1);
     }
 }

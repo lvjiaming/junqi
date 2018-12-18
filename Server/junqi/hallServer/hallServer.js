@@ -2,6 +2,7 @@
  * Created by Administrator on 2018/12/13.
  */
 const ws = require("ws");
+const hallHanler = require("./hallMsgHandler");
 module.exports = hallServer = function (config) {
     console.log("start hallServer");
     this.hs = new ws.Server({
@@ -17,6 +18,8 @@ module.exports = hallServer = function (config) {
         ws.on('message', (message) => {  //  接收客户端的消息
             console.log(`has get meesage(hallServer): ${message}`);
             const msgObj = JSON.parse(message);
+            const handler = new hallHanler();
+            handler.handler(ws, msgObj);
         });
         ws.on('close', () => {
             console.log(`one client has closed(hallServer)`);

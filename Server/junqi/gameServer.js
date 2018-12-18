@@ -5,7 +5,7 @@ const common = require('./config/common');
 module.exports = {
     _gameServerList: [],
     startGameServer(gameid) {
-        console.log(`开始gameid = ${parseInt(gameid)}的游戏`);
+        console.log(`开始gameid = ${parseInt(gameid)}(${serverConfig.gameServer[gameid].name})的游戏`);
         if (serverConfig && serverConfig.gameServer && serverConfig.gameServer[gameid]) {
             switch (gameid) {
                 case common.GameID.GAME_JUNQI: {
