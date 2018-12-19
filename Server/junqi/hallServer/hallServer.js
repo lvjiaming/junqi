@@ -9,6 +9,11 @@ module.exports = hallServer = function (config) {
         host: config.ip,
         port: config.port
     });
+    this.sessionList = [];  // 记录在线玩家的session
+    // utils.sendEmail("1914460238@qq.com", "军旗", "验证码：11232", (info) => {
+    //     console.log("发送成功", info);
+    // });
+    const handler = new hallHanler(this.sessionList);
     // console.log(this.hs)
     this.hs.on('connection', (ws) => {  //  注册连接上的事件
         console.log(`one client has connected(hallServer)`);
@@ -18,11 +23,26 @@ module.exports = hallServer = function (config) {
         ws.on('message', (message) => {  //  接收客户端的消息
             console.log(`has get meesage(hallServer): ${message}`);
             const msgObj = JSON.parse(message);
-            const handler = new hallHanler();
+
             handler.handler(ws, msgObj);
         });
         ws.on('close', () => {
+            userInfoMgr.getUserBySessionId(ws.sessionId, (user) => {
+                if (user) {
+                    user.online = false;
+                    userInfoMgr.changeUser(user, (userlist) => {
+                        handler.userList = userlist;
+                    });
+                }
+            });
+            this.sessionList.forEach((item, index) => {
+                if (ws.sessionId == item.sessionId) {
+                    this.sessionList.splice(index, 1);
+                }
+            });
+            console.log(`sessionList.length: ${this.sessionList.length}`);
             console.log(`one client has closed(hallServer)`);
+            // userMgr.get
         });
     });
     this.hs.on('error', (err) => {

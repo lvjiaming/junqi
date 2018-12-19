@@ -2,6 +2,7 @@
  * Created by Administrator on 2018/12/14.
  */
 const WebSocket = require('ws');
+const email = require("nodemailer");
 module.exports = utils = {
 
 };
@@ -76,4 +77,35 @@ utils.sendErrMsg = (ws, str) => {
     if (ws.readyState === WebSocket.OPEN) {
         ws.send(JSON.stringify({msgId: commonCfg.EventId.EVENT_ERR_MSG_REP, msgData: {msg: str, code: commonCfg.MSG_CODE.ERR}}));
     }
+};
+/**
+ *  发送qq邮箱
+ * @param user
+ * @param title
+ * @param text
+ * @param cb
+ */
+utils.sendEmail = (user, title, text, cb) => {
+    const transporter = email.createTransport({
+        service: "qq",
+        auth: {
+            user: '863537291@qq.com',
+            pass: 'xqmgqpjccxesbbec',
+        },
+    });
+    const emailOpt = {
+        from: '863537291@qq.com',
+        to: user,
+        subject: title,
+        text: text,
+    };
+    transporter.sendMail(emailOpt, function (err, info) {
+        if (err) {
+            console.error(err);
+        } else {
+            if (cb && cb instanceof Function) {
+                cb(info);
+            }
+        }
+    });
 };

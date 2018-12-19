@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
-const HallHandler = function () {
-
+const HallHandler = function (target) {
+    this.target = target;
 };
 HallHandler.prototype.handler = function(ws, data) {
     switch (data.msgId) {
@@ -38,6 +38,7 @@ HallHandler.prototype.addUser = function(ws, data) {
                         if (has) {
                             getUserId();
                         } else {
+                            // ws.sessionId = userId;
                             const info = {id: userId, name: data.name, password: data.password};
                             userMgr.insertUser(info, (userlist) => {
                                 this.userList =  userlist;
@@ -63,6 +64,9 @@ HallHandler.prototype.login = function (ws, data) {
                     userMgr.changeUser(user, (userlist) => {
                         this.userList = userlist;
                     });
+                    ws.sessionId = user.id;
+                    this.target.push(ws);
+                    console.log(`sessionList.length: ${this.target.length}`);
                     utils.sendMsg(ws, commonCfg.EventId.EVENT_LOGIN_IN_REP, user);
                 } else {
                     utils.sendErrMsg(ws, "密码不正确！");
@@ -75,9 +79,9 @@ HallHandler.prototype.login = function (ws, data) {
         utils.sendErrMsg(ws, "请输入正确的用户名");
     }
 };
-module.exports = function () {
+module.exports = function (target) {
     if (!this.hallHandle) {
-        this.hallHandle = new HallHandler();
+        this.hallHandle = new HallHandler(target);
     }
     return this.hallHandle;
 };

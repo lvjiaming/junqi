@@ -93,6 +93,33 @@ userInfoMgr.getUserByName = (name, cb) => {
     });
 };
 /**
+ *  通过sessionId获取用户
+ * @param id
+ * @param cb
+ */
+userInfoMgr.getUserBySessionId = (id, cb) => {
+    fs.readFile("./common/userInfo.json", (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            const dataStr = data.toString();
+            let dataObj = {};
+            if (dataStr) {
+                dataObj = JSON.parse(dataStr);
+            }
+            let getUser = null;
+            for (let us in dataObj) {
+                if (dataObj[us] && dataObj[us].sessionId == id) {
+                    getUser = dataObj[us];
+                }
+            }
+            if (cb && cb instanceof Function) {
+                cb(getUser);
+            }
+        }
+    });
+};
+/**
  *  修改一个玩家
  * @param user
  */
