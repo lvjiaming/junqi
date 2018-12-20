@@ -1,40 +1,47 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
+
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
-
+    onLoad () {
+        cc.comTip.init(this.node);
+        cc.hallEventM.addObserver(this);
+    },
+    onDestroy() {
+        cc.hallEventM.removeObserver(this);
+    },
     start () {
 
+    },
+    onGetGameListClick() {
+        cc.log("获取游戏列表");
+        cc.hallEventM.startEvent(cc.hallEvent.EVENT_GET_GAME_LIST_REQ);
+    },
+    onEventMessage(event, data) {
+        switch (event) {
+            case cc.hallEvent.EVENT_ERR_MSG_REP: { // 错误信息
+                cc.comTip.show(data.msg, 2);
+                break;
+            }
+            case cc.hallEvent.EVENT_SEND_GAME_LIST: { // 游戏列表
+                cc.log("获取到游戏列表", data);
+                break;
+            }
+            case cc.hallEvent.EVENT_ENTER_ROOM_SEP: { // 进入房间回复
+                cc.log("进入房间回复", data);
+                break;
+            }
+            case cc.hallEvent.EVENT_SEND_ROOM_INFO: { // 发送房间信息
+                cc.log("发送房间信息", data);
+                break;
+            }
+        }
     },
 
     // update (dt) {},

@@ -162,6 +162,8 @@ cc.Class({
             case cc.hallEvent.EVENT_LOGIN_IN_REP: { // 登录回复
                 cc.comTip.hide();
                 cc.log("登录成功");
+                cc.user.init(data);
+                cc.director.loadScene("HallScene.fire");
                 break;
             }
         }

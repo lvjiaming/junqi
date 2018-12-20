@@ -14,6 +14,16 @@ HallHandler.prototype.handler = function(ws, data) {
             this.login(ws, data.msgData);
             break;
         }
+        case commonCfg.EventId.EVENT_GET_GAME_LIST_REQ: {
+            console.log("请求游戏列表");
+            this.returnGameList(ws, data.msgData);
+            break;
+        }
+        case commonCfg.EventId.EVENT_ENTER_ROOM_SEQ: {
+            console.log("请求进入房间");
+            this.userEnterRoom(ws, data.msgData);
+            break;
+        }
     }
 };
 /**
@@ -78,6 +88,29 @@ HallHandler.prototype.login = function (ws, data) {
     } else {
         utils.sendErrMsg(ws, "请输入正确的用户名");
     }
+};
+HallHandler.prototype.returnGameList = function (ws, data) {
+    fs.readFile("./config/serverConfig.json", (err, data) => {
+        if (err) {
+            console.error(err);
+            utils.sendErrMsg(ws, "获取游戏列表失败");
+        } else {
+            const dataStr = data.toString();
+            const datas = JSON.parse(dataStr);
+            const gameList = [];
+            if (datas.gameServer) {
+                for (let index in datas.gameServer) {
+                    if (datas.gameServer[index].isopen) {
+                        gameList.push(datas.gameServer[index]);
+                    }
+                }
+            }
+            utils.sendMsg(ws, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
+        }
+    });
+};
+HallHandler.prototype.userEnterRoom = function (ws, data) {
+
 };
 module.exports = function (target) {
     if (!this.hallHandle) {
