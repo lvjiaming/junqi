@@ -27,7 +27,7 @@ roomMgr.addRoom = (user, cb) => {
             });
             console.log("新增一个房间：", utils.objectToArray(dataObj).length);
             if (cb && cb instanceof Function) {
-                cb(dataObj);
+                cb(info);
             }
         }
     });
@@ -55,6 +55,44 @@ roomMgr.deleteRoom = (roomId, cb) => {
             console.log("删除一个房间：", utils.objectToArray(dataObj).length);
             if (cb && cb instanceof Function) {
                 cb(dataObj);
+            }
+        }
+    });
+};
+roomMgr.addUser = (user, cb) => {
+    fs.readFile("./common/roomInfo.json", (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            const dataStr = data.toString();
+            let dataObj = {};
+            if (dataStr) {
+                dataObj = JSON.parse(dataStr);
+            }
+            let room = {};
+            let hasFind = false;
+            for (let index in dataObj) {
+                const userList = dataObj[index].userList;
+                if (userList.length <= 1 && !hasFind) {
+                    userList.push(user);
+                    hasFind = true;
+                    room = dataObj[index];
+                }
+            }
+            if (hasFind) {
+                fs.writeFile("./common/roomInfo.json", JSON.stringify(dataObj), (err) => {
+                    if (err) {
+                        console.error("写入失败",err);
+                    } else {
+                        console.log("写入成功");
+                    }
+                });
+                console.log("在现有的房间添加一个玩家");
+                if (cb && cb instanceof Function) {
+                    cb(room);
+                }
+            } else {
+                roomMgr.addRoom(user, cb);
             }
         }
     });

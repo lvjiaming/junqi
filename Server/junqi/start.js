@@ -10,6 +10,7 @@ utils = require("./common/utils");
 updataServerConfig = require("./common/updataServerConfig");
 commonCfg = require("./config/common");
 userMgr = require("./common/userInfoMgr");
+roomMgr = require("./common/roomMgr");
 serverConfig = null;
 
 /**

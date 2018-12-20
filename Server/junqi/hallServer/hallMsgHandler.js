@@ -78,6 +78,9 @@ HallHandler.prototype.login = function (ws, data) {
                     this.target.push(ws);
                     console.log(`sessionList.length: ${this.target.length}`);
                     utils.sendMsg(ws, commonCfg.EventId.EVENT_LOGIN_IN_REP, user);
+                    // roomMgr.addUser(user, (info) => {
+                    //     console.log("房间信息：", info);
+                    // });
                 } else {
                     utils.sendErrMsg(ws, "密码不正确！");
                 }
