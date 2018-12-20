@@ -11,6 +11,11 @@ module.exports = Common = {
         ERR: 1, // 错误消息
         SUC: 2, // 成功消息
     },
+    ROOM_STATE: {
+        WAIT: 1,  // 等待状态
+        GAME: 2,  // 游戏状态
+        END: 3,  // 游戏结束状态
+    },
     EventId: {
         EVENT_ERR_MSG_REP: 0,   // 错误消息
 

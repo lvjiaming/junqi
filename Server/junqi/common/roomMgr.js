@@ -16,7 +16,7 @@ roomMgr.addRoom = (user, cb) => {
             }
             const userList = [];
             userList.push(user);
-            const info = {hostId: user.id, userList: userList, roomId: utils.objectToArray(dataObj).length + 1};
+            const info = {hostId: user.id, userList: userList, roomId: utils.objectToArray(dataObj).length + 1, roomState: commonCfg.ROOM_STATE.WAIT};
             dataObj[utils.objectToArray(dataObj).length + 1] = info;
             fs.writeFile("./common/roomInfo.json", JSON.stringify(dataObj), (err) => {
                 if (err) {
