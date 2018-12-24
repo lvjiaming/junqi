@@ -1,4 +1,7 @@
-const GameCfg = {
+/**
+ * Created by Administrator on 2018/12/24.
+ */
+module.exports = LzqCfg = {
     SEAT_TYPE: { // 座位的类型
         BING_ZHAN: 1, // 兵站
         XING_YING: 2, // 行营
@@ -19,19 +22,4 @@ const GameCfg = {
         DI_LEI: 11, // 地雷
         JUN_QI: 12, // 军旗
     },
-    MAT_SIZE: {  // 地图大小
-        W: 650,
-        H: 1100,
-    },
-    ITEM_SIZE: { // 棋子大小
-        W: 50,
-        H: 25,
-        SPACE_X: 140,
-        SPACE_Y: 80,
-    },
-    ITEM_LIST: { // 棋子分部（13行5列）
-        X: 5,
-        Y: 13,
-    },
 };
-cc.lzqGameCfg = GameCfg;

@@ -7,9 +7,9 @@ const GameControl = cc.Class({
             return this.gameControl;
         },
     },
-    _gameNode: null,
-    ctor(node) {
-        this._gameNode = node;
+    _game: null,
+    ctor(target) {
+        this._game = target;
     },
     /**
      *  生成地图
