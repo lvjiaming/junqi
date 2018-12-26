@@ -4,6 +4,7 @@ const GameCfg = {
         XING_YING: 2, // 行营
         QIAN_XIAN: 3, // 前线
         DA_BEN_YING: 4, // 大本营
+        SHAN_JIE: 5, // 山界
     },
     ITEM_TYPE: {
         SI_LING: 1, // 司令
@@ -25,7 +26,7 @@ const GameCfg = {
     },
     ITEM_SIZE: { // 棋子大小
         W: 50,
-        H: 25,
+        H: 20,
         SPACE_X: 140,
         SPACE_Y: 80,
     },
