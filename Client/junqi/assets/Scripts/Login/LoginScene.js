@@ -23,7 +23,7 @@ cc.Class({
         cc.comTip.init();
         cc.resLoad.loadDirRes("dirRes/Common", () => {
             cc.comTip.show("连接服务器中");
-            cc.hallEventM.connect("ws://192.168.0.18:20001", () => {
+            cc.hallEventM.connect(cc.commonCfg.HALL_HOST, () => {
                 cc.log("已连接");
                 cc.comTip.hide();
                 this.isShowLogin(true);
@@ -126,7 +126,7 @@ cc.Class({
             }
         }
         if (!isSame) {
-            cc.comTip.show("请出入正确的信息", 2);
+            cc.comTip.show("请输入正确的信息", 2);
             return;
         }
         cc.comTip.show("正在注册中！！");

@@ -40,4 +40,16 @@ module.exports = {
             }
         });
     },
+    /**
+     *  通过游戏id获取游戏服务器
+     */
+    getGameServerByGameId(id) {
+        let server = null;
+        this._gameServerList.forEach((item) => {
+            if (item.gameid == id) {
+                server = item.server;
+            }
+        });
+        return server;
+    },
 };

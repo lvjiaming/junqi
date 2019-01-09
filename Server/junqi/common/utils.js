@@ -78,13 +78,13 @@ utils.getRandom = (len) => {
     return str;
 };
 utils.sendMsg = (ws, msgId, data) => {
-    if (ws.readyState === WebSocket.OPEN) {
+    if (ws && ws.readyState === WebSocket.OPEN) {
         // data.code = commonCfg.MSG_CODE.SUC;
         ws.send(JSON.stringify({msgId: msgId, msgData: data}));
     }
 };
 utils.sendErrMsg = (ws, str) => {
-    if (ws.readyState === WebSocket.OPEN) {
+    if (ws && ws.readyState === WebSocket.OPEN) {
         ws.send(JSON.stringify({msgId: commonCfg.EventId.EVENT_ERR_MSG_REP, msgData: {msg: str, code: commonCfg.MSG_CODE.ERR}}));
     }
 };

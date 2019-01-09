@@ -291,7 +291,6 @@ const LzqGameControl = cc.Class({
                     this._game.node.addChild(n_node);
                 }
             });
-            cc.log("划线次数：", this.nums);
         } else {
             cc.error("this._game not init");
         }
@@ -400,10 +399,6 @@ const LzqGameControl = cc.Class({
         }
         if (isCan && cb && cb instanceof Function) {
             cb();
-            if (!this.nums) {
-                this.nums = 0;
-            }
-            this.nums ++;
         }
     },
 });

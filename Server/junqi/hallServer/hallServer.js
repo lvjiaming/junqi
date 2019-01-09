@@ -3,6 +3,7 @@
  */
 const ws = require("ws");
 const hallHanler = require("./hallMsgHandler");
+hallHander = null;
 module.exports = hallServer = function (config) {
     console.log("start hallServer");
     this.hs = new ws.Server({
@@ -13,25 +14,25 @@ module.exports = hallServer = function (config) {
     // utils.sendEmail("1914460238@qq.com", "军旗", "验证码：11232", (info) => {
     //     console.log("发送成功", info);
     // });
-    const handler = new hallHanler(this.sessionList);
     // console.log(this.hs)
     this.hs.on('connection', (ws) => {  //  注册连接上的事件
         console.log(`one client has connected(hallServer)`);
         // userMgr.getUserByName("哈哈", (data) => {
         //     console.log(data);
         // });
+        hallHander = new hallHanler(this.sessionList, ws);
         ws.on('message', (message) => {  //  接收客户端的消息
             console.log(`has get meesage(hallServer): ${message}`);
             const msgObj = JSON.parse(message);
 
-            handler.handler(ws, msgObj);
+            hallHander.handler(ws, msgObj);
         });
         ws.on('close', () => {
             userInfoMgr.getUserBySessionId(ws.sessionId, (user) => {
                 if (user) {
                     user.online = false;
                     userInfoMgr.changeUser(user, (userlist) => {
-                        handler.userList = userlist;
+                        hallHander.userList = userlist;
                     });
                 }
             });

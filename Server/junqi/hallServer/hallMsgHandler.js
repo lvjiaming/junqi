@@ -1,6 +1,7 @@
 const WebSocket = require('ws');
-const HallHandler = function (target) {
+const HallHandler = function (target, ws) {
     this.target = target;
+    this.ws = ws;
 };
 HallHandler.prototype.handler = function(ws, data) {
     switch (data.msgId) {
@@ -16,7 +17,7 @@ HallHandler.prototype.handler = function(ws, data) {
         }
         case commonCfg.EventId.EVENT_GET_GAME_LIST_REQ: {
             console.log("请求游戏列表");
-            this.returnGameList(ws, data.msgData);
+            this.returnGameList(data.msgData);
             break;
         }
         case commonCfg.EventId.EVENT_ENTER_ROOM_SEQ: {
@@ -92,11 +93,11 @@ HallHandler.prototype.login = function (ws, data) {
         utils.sendErrMsg(ws, "请输入正确的用户名");
     }
 };
-HallHandler.prototype.returnGameList = function (ws, data) {
+HallHandler.prototype.returnGameList = function (data) {
     fs.readFile("./config/serverConfig.json", (err, data) => {
         if (err) {
             console.error(err);
-            utils.sendErrMsg(ws, "获取游戏列表失败");
+            utils.sendErrMsg(this.ws, "获取游戏列表失败");
         } else {
             const dataStr = data.toString();
             const datas = JSON.parse(dataStr);
@@ -108,16 +109,40 @@ HallHandler.prototype.returnGameList = function (ws, data) {
                     }
                 }
             }
-            utils.sendMsg(ws, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
+            utils.sendMsg(this.ws, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
         }
     });
 };
 HallHandler.prototype.userEnterRoom = function (ws, data) {
-
+    userMgr.getUserByUserId(data.userid, (user) => {
+        if (user) {
+            console.log("找到用户");
+            const server = gameServerMgr.getGameServerByGameId(data.gameid);
+            if (server) {
+                user.ws = ws;
+                if (server.roomList.length <= 0) {
+                    server.newRoom(user);
+                } else {
+                    server.roomList.forEach((item) => {
+                        if (item.userList.length >= 2) {
+                            server.newRoom(user);
+                        } else {
+                            item.userList.push(user);
+                        }
+                    });
+                }
+                console.log(server.roomList);
+            } else {
+                console.log("服务器为开启")
+            }
+        } else {
+            utils.sendErrMsg(ws, "用户不存在");
+        }
+    })
 };
-module.exports = function (target) {
+module.exports = function (target, ws) {
     if (!this.hallHandle) {
-        this.hallHandle = new HallHandler(target);
+        this.hallHandle = new HallHandler(target, ws);
     }
     return this.hallHandle;
 };

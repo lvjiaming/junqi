@@ -38,6 +38,7 @@ HallEventManager.Event = {
     EVENT_ENTER_ROOM_SEP: 8, // 进入房间回复
     EVENT_SEND_ROOM_INFO: 9, // 发送房间的信息
     EVENT_SEND_GAME_INFO: 10, // 发送游戏信息
+    EVENT_USER_ENTER_ROOM: 11, // 玩家加入房间
 };
 cc.hallEvent = HallEventManager.Event;
 cc.hallEventM = HallEventManager.getInstance();
