@@ -71,7 +71,7 @@ cc.Class({
             }
             case cc.hallEvent.EVENT_SEND_ROOM_INFO: { // 发送房间信息
                 cc.log("发送房间信息", data);
-                cc.gameMgr.changeToGameScene(data.gameid);
+                cc.gameMgr.changeToGameScene(data.gameid, data);
                 break;
             }
         }

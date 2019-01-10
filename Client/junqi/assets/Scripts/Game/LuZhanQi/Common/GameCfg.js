@@ -20,6 +20,21 @@ const GameCfg = {
         DI_LEI: 11, // 地雷
         JUN_QI: 12, // 军旗
     },
+    CHESS_NAME: [
+        "",
+        "司令",
+        "军长",
+        "师长",
+        "旅长",
+        "团长",
+        "营长",
+        "连长",
+        "排长",
+        "工兵",
+        "炸弹",
+        "地雷",
+        "军旗",
+    ],
     MAT_SIZE: {  // 地图大小
         W: 650,
         H: 1100,
@@ -33,6 +48,14 @@ const GameCfg = {
     ITEM_LIST: { // 棋子分部（13行5列）
         X: 5,
         Y: 13,
+    },
+    CHESS_MIAN: { // 棋子的正反面
+        BACK: 1, // 棋子背面
+        FACE: 2, // 棋子正面
+    },
+    CHESS_SUIT: { // 棋子的花色
+        RED: 1, // 红色方
+        BLACK: 2, // 黑色方
     },
 };
 cc.lzqGameCfg = GameCfg;

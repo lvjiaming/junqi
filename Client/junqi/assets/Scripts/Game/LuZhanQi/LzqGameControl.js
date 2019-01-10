@@ -401,6 +401,56 @@ const LzqGameControl = cc.Class({
             cb();
         }
     },
+    /**
+     *  生成棋子的背面
+     */
+    createChessBack() {
+        this.itemList.forEach((item) => {
+            item.forEach((point) => {
+                if (point.type == cc.lzqGameCfg.SEAT_TYPE.DA_BEN_YING || point.type == cc.lzqGameCfg.SEAT_TYPE.BING_ZHAN) {
+                    const newNode = this.createOneChess(cc.lzqGameCfg.CHESS_MIAN.BLACK);
+                    newNode.position = cc.v2(point.pos.x, point.pos.y);
+                    newNode.info = point;
+                    this._game.node.addChild(newNode, 10);
+                }
+            });
+        });
+    },
+    /**
+     *  生成一个棋子
+     * @param mian 正反面
+     * @param suit 红色还是黑色
+     * @param num 棋子的类型
+     */
+    createOneChess(mian, suit, num) {
+        const n_node = new cc.Node();
+        const gr = n_node.addComponent(cc.Graphics);
+        if (mian == cc.lzqGameCfg.CHESS_MIAN.BACK) {
+            gr.rect(-30,-15,60,30);
+            gr.stroke();
+            gr.fillColor = new cc.Color(cc.Color.BLACK);
+            gr.fill();
+        } else {
+            gr.lineWidth = 10;
+            gr.strokeColor = new cc.Color(cc.Color.BLACK);
+            gr.rect(-30,-15,60,30);
+            gr.stroke();
+            gr.fillColor = new cc.Color(cc.Color.WHITE);
+            gr.fill();
+            const newLabNode = new cc.Node();
+            const font = newLabNode.addComponent(cc.Label);
+            font.fontSize = 18;
+            font.lineHeight = 18;
+            if (suit == cc.lzqGameCfg.CHESS_SUIT.RED) {
+                newLabNode.color = new cc.Color(cc.Color.RED);
+            } else {
+                newLabNode.color = new cc.Color(cc.Color.BLACK);
+            }
+            font.string = cc.lzqGameCfg.CHESS_NAME[num];
+            n_node.addChild(newLabNode);
+        }
+        return n_node;
+    },
 });
 
 cc.lzq_gameControl = LzqGameControl;

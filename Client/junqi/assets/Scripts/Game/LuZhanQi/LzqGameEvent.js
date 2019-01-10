@@ -21,12 +21,15 @@ cc.Class({
     onEventMessage(event, data) {
         switch (event) {
             case cc.hallEvent.EVENT_SEND_ROOM_INFO: { // 房间信息
+                cc.log("房间信息：", data);
                 break;
             }
             case cc.hallEvent.EVENT_SEND_GAME_INFO: { // 游戏信息
                 break;
             }
             case cc.hallEvent.EVENT_USER_ENTER_ROOM: {  // 玩家加入房间
+                cc.log("有玩家加入：", data);
+                cc.lzq.room.addUser(data.userInfo);
                 break;
             }
         }

@@ -5,7 +5,7 @@ const Room = cc.Class({
     _userList: null,
     _roomCfg: null,
     ctor(data) {
-        this.setUserList(data.userLst);
+        this.setUserList(data.userlist);
         this.setRoomCfg(data.roomCfg);
     },
     /**
@@ -14,6 +14,24 @@ const Room = cc.Class({
      */
     setUserList(data) {
         this._userList = data;
+    },
+    /**
+     *  添加玩家
+     * @param user
+     */
+    addUser(user) {
+        this._userList.push(user);
+    },
+    /**
+     *  移除玩家
+     * @param id
+     */
+    removeUser(id) {
+        this._userList.forEach((item, index) => {
+            if (item.id == id) {
+                this._userList.splice(index, 1);
+            }
+        });
     },
     /**
      *  获取房间玩家列表

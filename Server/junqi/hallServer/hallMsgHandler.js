@@ -17,7 +17,7 @@ HallHandler.prototype.handler = function(ws, data) {
         }
         case commonCfg.EventId.EVENT_GET_GAME_LIST_REQ: {
             console.log("请求游戏列表");
-            this.returnGameList(data.msgData);
+            this.returnGameList(false, data.msgData);
             break;
         }
         case commonCfg.EventId.EVENT_ENTER_ROOM_SEQ: {
@@ -79,6 +79,21 @@ HallHandler.prototype.login = function (ws, data) {
                     this.target.push(ws);
                     console.log(`sessionList.length: ${this.target.length}`);
                     utils.sendMsg(ws, commonCfg.EventId.EVENT_LOGIN_IN_REP, user);
+
+                    // 判断该玩家是否在游戏房间内，有，则将其拉回房间
+                    const serverList = gameServerMgr.getGameServerByGameId();
+                    serverList.forEach((item) => {
+                        item.server.roomList.forEach((room) => {
+                            room.userList.forEach((users) => {
+                                if (users.id == user.id) {
+                                    console.log("该玩家有房间");
+                                    setTimeout(() => {
+                                        utils.sendMsg(ws, commonCfg.EventId.EVENT_SEND_ROOM_INFO, {gameid: item.gameid, userlist: utils.userInfoChangeToGameUserInfo(room.userList)});
+                                    }, 800);
+                                }
+                            });
+                        });
+                    });
                     // roomMgr.addUser(user, (info) => {
                     //     console.log("房间信息：", info);
                     // });
@@ -93,7 +108,7 @@ HallHandler.prototype.login = function (ws, data) {
         utils.sendErrMsg(ws, "请输入正确的用户名");
     }
 };
-HallHandler.prototype.returnGameList = function (data) {
+HallHandler.prototype.returnGameList = function (isAll, data) {
     fs.readFile("./config/serverConfig.json", (err, data) => {
         if (err) {
             console.error(err);
@@ -109,7 +124,13 @@ HallHandler.prototype.returnGameList = function (data) {
                     }
                 }
             }
-            utils.sendMsg(this.ws, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
+            if (isAll) {
+                this.target.forEach((item) => {
+                    utils.sendMsg(item, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
+                });
+            } else {
+                utils.sendMsg(this.ws, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
+            }
         }
     });
 };
@@ -120,18 +141,29 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
             const server = gameServerMgr.getGameServerByGameId(data.gameid);
             if (server) {
                 user.ws = ws;
+                let curRoom = null;
                 if (server.roomList.length <= 0) {
-                    server.newRoom(user);
+                    curRoom = server.newRoom(user);
                 } else {
                     server.roomList.forEach((item) => {
                         if (item.userList.length >= 2) {
-                            server.newRoom(user);
+                            curRoom = server.newRoom(user);
                         } else {
                             item.userList.push(user);
+                            curRoom = item;
                         }
                     });
                 }
                 console.log(server.roomList);
+                if (curRoom) {
+                    curRoom.userList.forEach((item) => {
+                        if (item.id == data.userid) {
+                            utils.sendMsg(item.ws, commonCfg.EventId.EVENT_SEND_ROOM_INFO, {gameid: data.gameid, userlist: utils.userInfoChangeToGameUserInfo(curRoom.userList)});
+                        } else {
+                            utils.sendMsg(item.ws, commonCfg.EventId.EVENT_USER_ENTER_ROOM, {userInfo: utils.userInfoChangeToGameUserInfo(item)});
+                        }
+                    });
+                }
             } else {
                 console.log("服务器为开启")
             }

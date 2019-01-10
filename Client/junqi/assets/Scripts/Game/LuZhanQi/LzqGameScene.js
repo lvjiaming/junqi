@@ -15,6 +15,7 @@ cc.Class({
     onLoad () {
         this.gameControl = new cc.lzq_gameControl(this);
         this.gameControl.createMap();
+        this.gameControl.createChessBack();
     },
 
     start () {

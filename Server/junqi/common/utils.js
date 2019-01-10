@@ -119,3 +119,21 @@ utils.sendEmail = (user, title, text, cb) => {
         }
     });
 };
+/**
+ * 将保存的玩家信息转化成游戏里的玩家信息
+ * @param userInfo
+ * @returns {Array}
+ */
+utils.userInfoChangeToGameUserInfo = (userInfo) => {
+    let curNewInfo = [];
+    if (userInfo instanceof Array) {
+        userInfo.forEach((item) => {
+            const info = {id: item.id, name: item.name, online: item.online};
+            curNewInfo.push(info);
+        });
+    } else {
+        const gameUserInfo = {id: userInfo.id, name: userInfo.name, online: userInfo.online};
+        curNewInfo = gameUserInfo;
+    }
+    return curNewInfo;
+};

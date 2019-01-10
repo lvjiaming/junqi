@@ -41,7 +41,7 @@ module.exports = {
         });
     },
     /**
-     *  通过游戏id获取游戏服务器
+     *  通过游戏id获取游戏服务器（id不传，默认将左右游戏服务器返回）
      */
     getGameServerByGameId(id) {
         let server = null;
@@ -50,6 +50,9 @@ module.exports = {
                 server = item.server;
             }
         });
+        if (!id) {
+            server = this._gameServerList;
+        }
         return server;
     },
 };

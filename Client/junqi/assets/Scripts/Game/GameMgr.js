@@ -53,6 +53,13 @@ const GameMgr = cc.Class({
         if (sceneName) {
             cc.director.preloadScene(sceneName, () => {
                 cc.comTip.hide();
+                switch (gameid) {
+                    case cc.commonCfg.GAME_ID.GAME_JUNQI: {
+                        cc.lzq = {};
+                        cc.lzq.room = new cc.lzqRoom(data);
+                        break;
+                    }
+                }
                 cc.director.loadScene(sceneName);
             })
         }

@@ -19,7 +19,7 @@ module.exports = junQiServer =  function (config) {
         config.isopen = true;
         updataServerConfig.updataServerConfig(config, () => {
             if (hallHander) {
-                hallHander.returnGameList();
+                hallHander.returnGameList(true);
             }
         });
         console.log(`server opened(junQiServer)`);
@@ -46,7 +46,7 @@ module.exports = junQiServer =  function (config) {
         config.isopen = false;
         updataServerConfig.updataServerConfig(config, () => {
             if (hallHander) {
-                hallHander.returnGameList();
+                hallHander.returnGameList(true);
             }
         });
         console.log(`server has close(junQiServer)`);
@@ -56,6 +56,7 @@ module.exports = junQiServer =  function (config) {
         newRoom.userList = [];
         newRoom.userList.push(user);
         this.roomList.push(newRoom);
+        return newRoom;
     };
 };
 
