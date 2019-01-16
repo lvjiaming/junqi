@@ -137,3 +137,17 @@ utils.userInfoChangeToGameUserInfo = (userInfo) => {
     }
     return curNewInfo;
 };
+/**
+ *  获取事件的id（通过gameid）
+ * @param event
+ * @param gameid
+ */
+utils.getEventId = (event, gameid) => {
+    let newEvent = event;
+    if (event) {
+        if (gameid) {
+            newEvent = event - (gameid * 1000);
+        }
+    }
+    return newEvent;
+};

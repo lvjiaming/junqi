@@ -2,6 +2,10 @@
  * Created by Administrator on 2018/12/24.
  */
 module.exports = LzqCfg = {
+    EVENT: { // 事件
+        EVENT_GAME_LAYOUT: 1,  // 游戏的布局（棋盘）
+
+    },
     SEAT_TYPE: { // 座位的类型
         BING_ZHAN: 1, // 兵站
         XING_YING: 2, // 行营

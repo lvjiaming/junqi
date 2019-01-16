@@ -408,7 +408,7 @@ const LzqGameControl = cc.Class({
         this.itemList.forEach((item) => {
             item.forEach((point) => {
                 if (point.type == cc.lzqGameCfg.SEAT_TYPE.DA_BEN_YING || point.type == cc.lzqGameCfg.SEAT_TYPE.BING_ZHAN) {
-                    const newNode = this.createOneChess(cc.lzqGameCfg.CHESS_MIAN.BLACK);
+                    const newNode = this.createOneChess(cc.lzqGameCfg.CHESS_MIAN.BACK);
                     newNode.position = cc.v2(point.pos.x, point.pos.y);
                     newNode.info = point;
                     this._game.node.addChild(newNode, 10);
@@ -450,6 +450,24 @@ const LzqGameControl = cc.Class({
             n_node.addChild(newLabNode);
         }
         return n_node;
+    },
+    /**
+     *  获取游戏棋盘的布局
+     */
+    getGameLayout() {
+        const newList = [];
+        this.itemList.forEach((item1) => {
+            const list = [];
+            item1.forEach((item2) => {
+                const info = {};
+                info.xiabiao = item2.xiabiao;
+                info.pointList = item2.pointList;
+                info.type = item2.type;
+                list.push(info);
+            });
+            newList.push(list);
+        });
+        return newList;
     },
 });
 

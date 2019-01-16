@@ -2,6 +2,8 @@
  * Created by Administrator on 2018/12/13.
  * 准备js
  */
+
+// 远程桌面用户名及密码：Administrator  jym8398337JYM
 const hallServer = require("./hallServer/hallServer");
 gameServerMgr = require('./gameServer');
 fs = require("fs");

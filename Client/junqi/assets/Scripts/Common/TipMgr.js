@@ -8,6 +8,10 @@ const TipMgr = cc.Class({
         },
     },
     _curPNode: null,
+    _popZIndex: null,
+    ctor() {
+        this._popZIndex = 10000;
+    },
     /**
      *  初始化
      */
@@ -28,7 +32,7 @@ const TipMgr = cc.Class({
             const pop = cc.instantiate(cc.resLoad.dirResList["Common"]["COMMONTIP"]);
             pop.time = time;
             pop.getComponent("CommonTip").setNote(str);
-            this._curPNode.addChild(pop);
+            this._curPNode.addChild(pop,this._popZIndex);
         } catch (err) {
             cc.error(err);
         }

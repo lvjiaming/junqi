@@ -16,6 +16,7 @@ const LzqEventManager = cc.Class({
     },
     startEvent(event, data) {
         cc.log(`发送的协议id为：${event}`);
+        event = event + (1000 * cc.commonCfg.GAME_ID.GAME_JUNQI);
         this.sendMessage(event, data);
     },
     onMsg(msgId, msgData) {
@@ -24,7 +25,7 @@ const LzqEventManager = cc.Class({
     }
 });
 LzqEventManager.EVENT = {
-
+    EVENT_GAME_LAYOUT: 1,  // 游戏的布局（棋盘）
 };
 cc.lzqEvent = LzqEventManager.EVENT;
 cc.lzqEventM = LzqEventManager.getInstance();

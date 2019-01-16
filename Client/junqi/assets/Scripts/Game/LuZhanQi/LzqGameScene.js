@@ -13,9 +13,11 @@ cc.Class({
 
 
     onLoad () {
-        this.gameControl = new cc.lzq_gameControl(this);
-        this.gameControl.createMap();
-        this.gameControl.createChessBack();
+        cc.lzq.gameControl = new cc.lzq_gameControl(this);
+        cc.lzq.gameControl.createMap();
+        cc.lzq.gameControl.createChessBack();
+        cc.lzqEventM.startEvent(cc.lzqEvent.EVENT_GAME_LAYOUT, cc.lzq.gameControl.getGameLayout());
+        cc.log(cc.lzq.gameControl.getGameLayout());
     },
 
     start () {

@@ -10,12 +10,26 @@ cc.Class({
         cc.comTip.init(this.node);
         cc.hallEventM.addObserver(this);
         cc.lzqEventM.addObserver(this);
+        cc.lzqEventM.setListen(this);
     },
     onDestroy() {
         cc.hallEventM.removeObserver(this);
         cc.lzqEventM.removeObserver(this);
+        cc.lzqEventM.removeListen();
     },
     start () {
+
+    },
+    /**
+     *  重连失败的监听
+     */
+    reconnectFail() {
+        cc.director.loadScene("HallScene");
+    },
+    /**
+     *  重连成功的监听
+     */
+    reconnectSuc() {
 
     },
     onEventMessage(event, data) {
