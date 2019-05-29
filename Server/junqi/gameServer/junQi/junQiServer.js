@@ -32,8 +32,8 @@ module.exports = junQiServer =  function (config) {
     this.jqServer.on('connection', (ws) => {  //  注册连接上的事件
         console.log(`one client has connected(junQiServer)`);
         ws.on('message', (message) => {  //  接收客户端的消息
-            console.log(`has get meesage(junQiServer): ${message}`);
             const msgObj = JSON.parse(message);
+            console.log(`has get meesage(junQiServer): ${msgObj}`);
             this.jqHandler.handler(ws, msgObj);
         });
         ws.on('close', () => {
@@ -59,6 +59,13 @@ module.exports = junQiServer =  function (config) {
     this.newRoom = (user) => {
         const newRoom = {};
         newRoom.userList = [];
+        newRoom.state = commonCfg.ROOM_STATE.WAIT;
+        newRoom.onStateChange = (state) => {
+            newRoom.state = state;
+            if (state == commonCfg.ROOM_STATE.GAME) {
+                cc.log("此房间开启");
+            }
+        };
         newRoom.userList.push(user);
         this.roomList.push(newRoom);
         return newRoom;

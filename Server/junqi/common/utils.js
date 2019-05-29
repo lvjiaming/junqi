@@ -128,7 +128,7 @@ utils.userInfoChangeToGameUserInfo = (userInfo) => {
     let curNewInfo = [];
     if (userInfo instanceof Array) {
         userInfo.forEach((item) => {
-            const info = {id: item.id, name: item.name, online: item.online};
+            const info = {id: item.id, name: item.name, online: item.online, state: item.state || 0};
             curNewInfo.push(info);
         });
     } else {

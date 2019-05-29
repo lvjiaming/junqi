@@ -25,6 +25,15 @@ HallHandler.prototype.handler = function(ws, data) {
             this.userEnterRoom(ws, data.msgData);
             break;
         }
+        case commonCfg.EventId.EVENT_QUIT_ROOM_REQ: {
+            console.log("请求退出房间");
+            this.quitRoom(ws, data.msgData);
+            break;
+        }
+        case commonCfg.EventId.EVENT_READY_REQ: {
+            console.log("准备");
+            break;
+        }
     }
 };
 /**
@@ -145,14 +154,17 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
                 if (server.roomList.length <= 0) {
                     curRoom = server.newRoom(user);
                 } else {
+                    let hasFind = false;
                     server.roomList.forEach((item) => {
-                        if (item.userList.length >= 2) {
-                            curRoom = server.newRoom(user);
-                        } else {
+                        if (item.userList.length < 2) {
                             item.userList.push(user);
                             curRoom = item;
+                            hasFind = true;
                         }
                     });
+                    if (!hasFind) {
+                        curRoom = server.newRoom(user);
+                    }
                 }
                 console.log(server.roomList);
                 if (curRoom) {
@@ -165,12 +177,15 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
                     });
                 }
             } else {
-                console.log("服务器为开启")
+                console.log("服务器未开启");
             }
         } else {
             utils.sendErrMsg(ws, "用户不存在");
         }
     })
+};
+HallHandler.prototype.quitRoom = function (ws, data) {
+
 };
 module.exports = function (target, ws) {
     if (!this.hallHandle) {
