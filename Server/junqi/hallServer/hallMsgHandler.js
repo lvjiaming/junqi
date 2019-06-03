@@ -32,6 +32,7 @@ HallHandler.prototype.handler = function(ws, data) {
         }
         case commonCfg.EventId.EVENT_READY_REQ: {
             console.log("准备");
+            this.ready(ws, data.msgData);
             break;
         }
     }
@@ -97,7 +98,13 @@ HallHandler.prototype.login = function (ws, data) {
                                 if (users.id == user.id) {
                                     console.log("该玩家有房间");
                                     setTimeout(() => {
-                                        utils.sendMsg(ws, commonCfg.EventId.EVENT_SEND_ROOM_INFO, {gameid: item.gameid, userlist: utils.userInfoChangeToGameUserInfo(room.userList)});
+                                        // todo 断线情况，游戏列表存在未发送给客户端，在此放入serverList字段，通知客户端游戏服务器开启的配置
+                                        gameServerMgr.getAllGameServerCfg((serverList) => {
+                                            utils.sendMsg(ws, commonCfg.EventId.EVENT_SEND_ROOM_INFO, {gameid: item.gameid,
+                                                userlist: utils.userInfoChangeToGameUserInfo(room.userList),
+                                                serverList: serverList,
+                                            });
+                                        });
                                     }, 800);
                                 }
                             });
@@ -147,6 +154,24 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
     userMgr.getUserByUserId(data.userid, (user) => {
         if (user) {
             console.log("找到用户");
+            const serverList = gameServerMgr.getGameServerByGameId();
+            let isInRoom = false;
+            let inRoomId = 0;
+            serverList.forEach((item) => {
+                if (item.roomList) {
+                    item.roomList.forEach((roomItem) => {
+                        if (roomItem.id == user.userid) {
+                            isInRoom = true;
+                            inRoomId = gameid;
+                        }
+                    });
+                }
+            });
+            if (isInRoom) {
+                cc.log("已在房间中，无法加入其它房间: ", inRoomId);
+                utils.sendErrMsg(ws, `你已在${inRoomId}游戏房间中，无法加入其它房间`);
+                return;
+            }
             const server = gameServerMgr.getGameServerByGameId(data.gameid);
             if (server) {
                 user.ws = ws;
@@ -177,15 +202,41 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
                     });
                 }
             } else {
-                console.log("服务器未开启");
+                console.log("游戏服务器未开启：", data.gameid);
             }
         } else {
             utils.sendErrMsg(ws, "用户不存在");
         }
     })
 };
+/**
+ *  退出房间
+ * @param ws
+ * @param data
+ */
 HallHandler.prototype.quitRoom = function (ws, data) {
+    userMgr.getUserByUserId(data.userid, (user) => {
+        if (user) {
+            const serverList = gameServerMgr.getGameServerByGameId();
 
+        } else {
+            console.log("用户不存在");
+        }
+    });
+};
+/**
+ *  准备
+ * @param ws
+ * @param data
+ */
+HallHandler.prototype.ready = function (ws, data) {
+    userMgr.getUserByUserId(data.userid, (user) => {
+        if (user) {
+
+        } else {
+            console.log("用户不存在");
+        }
+    });
 };
 module.exports = function (target, ws) {
     if (!this.hallHandle) {

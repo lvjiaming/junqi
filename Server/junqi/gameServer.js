@@ -55,4 +55,29 @@ module.exports = {
         }
         return server;
     },
+    /**
+     *  获取所有游戏服务的配置
+     */
+    getAllGameServerCfg(cb) {
+        fs.readFile("./config/serverConfig.json", (err, data) => {
+            if (err) {
+                cc.log("获取游戏配置失败");
+                console.error(err);
+            } else {
+                const dataStr = data.toString();
+                const datas = JSON.parse(dataStr);
+                const gameList = [];
+                if (datas.gameServer) {
+                    for (let index in datas.gameServer) {
+                        if (datas.gameServer[index].isopen) {
+                            gameList.push(datas.gameServer[index]);
+                        }
+                    }
+                }
+                if (cb && cb instanceof Function) {
+                    cb(gameList);
+                }
+            }
+        });
+    },
 };

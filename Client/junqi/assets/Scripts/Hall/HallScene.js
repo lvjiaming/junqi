@@ -36,6 +36,7 @@ cc.Class({
                 item.destroy();
             });
         }
+        cc.gameMgr.updateSererList(data);
         data.forEach((item) => {
             const newNode = new cc.Node();
             const lab = newNode.addComponent(cc.Label);
@@ -71,6 +72,9 @@ cc.Class({
             }
             case cc.hallEvent.EVENT_SEND_ROOM_INFO: { // 发送房间信息
                 cc.log("发送房间信息", data);
+                if (data.serverList) {
+                    cc.gameMgr.updateSererList(data.serverList);
+                }
                 cc.gameMgr.changeToGameScene(data.gameid, data);
                 break;
             }

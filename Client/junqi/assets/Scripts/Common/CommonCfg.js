@@ -1,5 +1,5 @@
 const CommonCfg = {
-    HALL_HOST: "ws://192.168.0.18:20001",
+    HALL_HOST: "ws://192.168.0.9:20001",
     GAME_ID: {
         GAME_JUNQI: 1,
         GAME2: 2,

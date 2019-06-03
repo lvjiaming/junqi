@@ -40,6 +40,13 @@ HallEventManager.Event = {
     EVENT_SEND_GAME_INFO: 10, // 发送游戏信息
     EVENT_USER_ENTER_ROOM: 11, // 玩家加入房间
     EVENT_USER_ONLINE_CHANGE: 12, // 玩家在线状态改变
+
+    EVENT_READY_REQ: 13, // 准备的请求
+    EVENT_SET_USER_STATE: 14, // 设置玩家的状态
+
+    EVENT_QUIT_ROOM_REQ: 15, // 退出房间的请求
+    EVENT_AGREE_QUIT_ROOM: 16, // 同意退出房间
+    EVENT_USER_QUIT_ROOM: 17, // 玩家退出房间
 };
 cc.hallEvent = HallEventManager.Event;
 cc.hallEventM = HallEventManager.getInstance();
