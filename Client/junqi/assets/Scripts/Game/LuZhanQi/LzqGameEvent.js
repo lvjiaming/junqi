@@ -46,6 +46,15 @@ cc.Class({
                 cc.lzq.room.addUser(data.userInfo);
                 break;
             }
+            case cc.hallEvent.EVENT_AGREE_QUIT_ROOM: {
+                cc.log("同意退出房间");
+                cc.director.loadScene("HallScene.fire");
+                break;
+            }
+            case cc.hallEvent.EVENT_USER_QUIT_ROOM: {
+                cc.log("玩家退出房间: ", data);
+                break;
+            }
         }
     },
 

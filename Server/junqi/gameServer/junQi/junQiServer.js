@@ -6,6 +6,7 @@
  */
 const ws = require("ws");
 const junQiMsgHandler = require("./junQiMsgHandler");
+const junQiCommon = require('./common/jq-com.js');
 module.exports = junQiServer =  function (config) {
     if (config.isopen) {
         console.log(`this server has open(junQiServer)`);
@@ -14,6 +15,7 @@ module.exports = junQiServer =  function (config) {
     console.log("start junQiServer");
     this.gameid = config.gameid;
     this.gameCfg = require("../common/lzqCfg");
+    this.gameLayout = null; // 游戏的棋盘布局
     this.jqServer = new ws.Server({
         host: config.ip,
         port: config.port
@@ -26,9 +28,14 @@ module.exports = junQiServer =  function (config) {
         });
         this.jqHandler = new junQiMsgHandler(this);
         console.log(`server opened(junQiServer)`);
+        if (!this.gameLayout) {
+            junQiCommon.getGameLayout((gmLayout) => {
+                this.gameLayout = gmLayout;
+                // console.log(this.gameLayout);
+            });
+        }
     });
     this.roomList = [];  // 该游戏的房间列表
-    this.gameLayout = null; // 游戏的棋盘布局
     this.jqServer.on('connection', (ws) => {  //  注册连接上的事件
         console.log(`one client has connected(junQiServer)`);
         ws.on('message', (message) => {  //  接收客户端的消息

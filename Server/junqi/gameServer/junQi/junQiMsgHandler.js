@@ -8,9 +8,6 @@ junqiMsgHandler.prototype.handler = function (ws, data) {
     switch (utils.getEventId(data.msgId, this.target.gameid)) {
         case this.target.gameCfg.EVENT.EVENT_GAME_LAYOUT: {
             // console.log(data.msgData);
-            if (!this.target.gameLayout) {
-                this.target.gameLayout = data.msgData;
-            }
             break;
         }
     }

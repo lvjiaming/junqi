@@ -18,7 +18,7 @@ export default class NewClass extends cc.Component {
      *  返回点击事件
      */
     public onReturnClick(): void {
-
+        cc.hallEventM.startEvent(cc.hallEvent.EVENT_QUIT_ROOM_REQ, {userid: cc.user.getUserId()});
     }
 
     /**

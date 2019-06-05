@@ -160,10 +160,12 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
             serverList.forEach((item) => {
                 if (item.roomList) {
                     item.roomList.forEach((roomItem) => {
-                        if (roomItem.id == user.userid) {
-                            isInRoom = true;
-                            inRoomId = gameid;
-                        }
+                        roomItem.userList.forEach((userItem) => {
+                            if (userItem.id == user.userid) {
+                                isInRoom = true;
+                                inRoomId = gameid;
+                            }
+                        });
                     });
                 }
             });
@@ -173,6 +175,9 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
                 return;
             }
             const server = gameServerMgr.getGameServerByGameId(data.gameid);
+            console.log("找到的服务器：", server);
+            console.log("房间列表: ", server.roomList);
+            console.log("军旗服务器：", server.junQiServer);
             if (server) {
                 user.ws = ws;
                 let curRoom = null;
@@ -217,8 +222,51 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
 HallHandler.prototype.quitRoom = function (ws, data) {
     userMgr.getUserByUserId(data.userid, (user) => {
         if (user) {
+            console.log("111");
             const serverList = gameServerMgr.getGameServerByGameId();
-
+            let curRoomUser = [];
+            console.log("服务器列表: ", serverList);
+            serverList.forEach((item) => {
+                console.log("服务器：", item.server.roomList);
+                const roomList = item.server.roomList;
+                if (roomList) {
+                    for (let roomIndex = roomList.length - 1; roomIndex >= 0; roomIndex--) {
+                        const userList = roomList[roomIndex].userList;
+                        console.log("玩家列表：", userList);
+                        console.log("申请玩家：", user);
+                        for (let userIndex = userList.length - 1; userIndex >= 0; userIndex--) {
+                            const userItem = userList[userIndex];
+                            if (userItem.id == user.id) {
+                                userList.forEach((userItems) => {
+                                    curRoomUser.push(userItems);
+                                });
+                                userList.splice(userIndex, 1);
+                                console.log("找到玩家，将玩家从此房间移除");
+                                break;
+                            }
+                        }
+                        if (userList.length == 0) {
+                            console.log("此房间人数已为0，删除此房间");
+                            roomList.splice(roomIndex, 1);
+                            break;
+                        }
+                    }
+                } else {
+                    console.log("房间没有");
+                }
+            });
+            console.log("找到的房间：", curRoomUser);
+            if (curRoomUser) {
+                curRoomUser.forEach((item) => {
+                    if (item.id == user.id) {
+                        utils.sendMsg(item.ws, commonCfg.EventId.EVENT_AGREE_QUIT_ROOM);
+                    } else {
+                        utils.sendMsg(item.ws, commonCfg.EventId.EVENT_USER_QUIT_ROOM, {userid: item.id});
+                    }
+                });
+            } else {
+                console.log("未找到房间");
+            }
         } else {
             console.log("用户不存在");
         }
