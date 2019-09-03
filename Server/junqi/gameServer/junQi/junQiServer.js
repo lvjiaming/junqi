@@ -71,6 +71,7 @@ module.exports = junQiServer =  function (config) {
             newRoom.state = state;
             if (state == commonCfg.ROOM_STATE.GAME) {
                 cc.log("此房间开启");
+                this.jqHandler.startGame(newRoom);
             }
         };
         newRoom.userList.push(user);

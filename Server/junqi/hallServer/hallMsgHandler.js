@@ -161,7 +161,7 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
                 if (item.roomList) {
                     item.roomList.forEach((roomItem) => {
                         roomItem.userList.forEach((userItem) => {
-                            if (userItem.id == user.userid) {
+                            if (userItem.id == user.id) {
                                 isInRoom = true;
                                 inRoomId = gameid;
                             }
@@ -177,7 +177,6 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
             const server = gameServerMgr.getGameServerByGameId(data.gameid);
             console.log("找到的服务器：", server);
             console.log("房间列表: ", server.roomList);
-            console.log("军旗服务器：", server.junQiServer);
             if (server) {
                 user.ws = ws;
                 let curRoom = null;
@@ -280,9 +279,23 @@ HallHandler.prototype.quitRoom = function (ws, data) {
 HallHandler.prototype.ready = function (ws, data) {
     userMgr.getUserByUserId(data.userid, (user) => {
         if (user) {
+            console.log("找到用户");
 
         } else {
             console.log("用户不存在");
+        }
+    });
+};
+const getRoomById = function (id, cb) {
+    const serverList = gameServerMgr.getGameServerByGameId();
+    serverList.forEach((item) => {
+        const roomList = item.server.roomList;
+        if (roomList) {
+            roomList.forEach((roomItem) => {
+                roomItem.userList.forEach((userItem) => {
+
+                });
+            });
         }
     });
 };

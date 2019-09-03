@@ -59,6 +59,7 @@ function readText(serverData) {
             console.log("获取到开启服务器的列表\n", listStr);
             listStr.forEach((item) => {
                 const dataList = item.split(",");
+                // console.log("这个：", dataList);
                 const info = {};
                 const gameid = parseInt(dataList[0]);
                 info.ip = dataList[1];
@@ -70,6 +71,7 @@ function readText(serverData) {
                     serverData.gameServer[gameid] = info;
                 }
             });
+            // console.log("写入的数据：", serverData);
             fs.writeFile("./config/serverConfig.json", JSON.stringify(serverData), (err) => {
                 if (err) {
                     console.error("写入失败",err);

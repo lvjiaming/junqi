@@ -12,6 +12,9 @@ junqiMsgHandler.prototype.handler = function (ws, data) {
         }
     }
 };
+junqiMsgHandler.prototype.startGame = function (room) {
+
+};
 module.exports = function (target) {
     if (!this.jqHandler) {
         this.jqHandler = new junqiMsgHandler(target);

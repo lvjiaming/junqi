@@ -22,6 +22,7 @@ module.exports = Common = {
         NO_READY: 2, // 未准备的状态
         OFF_LINE: 3, // 离线状态
     },
+
     EventId: {
         EVENT_ERR_MSG_REP: 0,   // 错误消息
 
