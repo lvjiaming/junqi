@@ -45,7 +45,7 @@ const LzqGameControl = cc.Class({
             if (this._game.bianJie) {
                 this._game.bianJie.lineWidth = 10;
                 this._game.bianJie.strokeColor = new cc.Color(cc.Color.RED);
-                this._game.bianJie.rect(-cc.lzqGameCfg.MAT_SIZE.W/2, -cc.lzqGameCfg.MAT_SIZE.H/2, cc.lzqGameCfg.MAT_SIZE.W, cc.lzqGameCfg.MAT_SIZE.H);
+                this._game.bianJie.rect(cc.lzqGameCfg.MAT_SIZE.W/2, cc.lzqGameCfg.MAT_SIZE.H/2, cc.lzqGameCfg.MAT_SIZE.W, cc.lzqGameCfg.MAT_SIZE.H);
                 this._game.bianJie.stroke();
             }
             // 生成ItemList
