@@ -6,6 +6,9 @@ const hallHanler = require("./hallMsgHandler");
 hallHander = null;
 module.exports = hallServer = function (config) {
     console.log("start hallServer");
+    if (commonCfg.IsForm) {
+        config.ip = commonCfg.FormGameIP;
+    }
     this.hs = new ws.Server({
         host: config.ip,
         port: config.port

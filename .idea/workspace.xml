@@ -3,26 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="62062026-f868-4f16-963f-0845191d5f23" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/Scene/HallScene.fire" afterPath="$PROJECT_DIR$/Client/junqi/assets/Scene/HallScene.fire" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/Scene/HallScene.fire.meta" afterPath="$PROJECT_DIR$/Client/junqi/assets/Scene/HallScene.fire.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/Scene/LoginScene.fire" afterPath="$PROJECT_DIR$/Client/junqi/assets/Scene/LoginScene.fire" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/Scene/LoginScene.fire.meta" afterPath="$PROJECT_DIR$/Client/junqi/assets/Scene/LoginScene.fire.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/Scene/LzqGameScene.fire" afterPath="$PROJECT_DIR$/Client/junqi/assets/Scene/LzqGameScene.fire" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/Scene/LzqGameScene.fire.meta" afterPath="$PROJECT_DIR$/Client/junqi/assets/Scene/LzqGameScene.fire.meta" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js" afterPath="$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/res/qizi.png.meta" afterPath="$PROJECT_DIR$/Client/junqi/assets/res/qizi.png.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/resources/dirRes/Common/CommonTip.prefab" afterPath="$PROJECT_DIR$/Client/junqi/assets/resources/dirRes/Common/CommonTip.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/resources/dirRes/Common/CommonTip.prefab.meta" afterPath="$PROJECT_DIR$/Client/junqi/assets/resources/dirRes/Common/CommonTip.prefab.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/project.json" afterPath="$PROJECT_DIR$/Client/junqi/project.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/settings/project.json" afterPath="$PROJECT_DIR$/Client/junqi/settings/project.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/settings/services.json" afterPath="$PROJECT_DIR$/Client/junqi/settings/services.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/config.txt" afterPath="$PROJECT_DIR$/Server/junqi/config.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/config/common.js" afterPath="$PROJECT_DIR$/Server/junqi/config/common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/config/serverConfig.json" afterPath="$PROJECT_DIR$/Server/junqi/config/serverConfig.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiMsgHandler.js" afterPath="$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiMsgHandler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiServer.js" afterPath="$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiServer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js" afterPath="$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/start.js" afterPath="$PROJECT_DIR$/Server/junqi/start.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/hallServer/hallServer.js" afterPath="$PROJECT_DIR$/Server/junqi/hallServer/hallServer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,7 +31,27 @@
         <entry file="file://$PROJECT_DIR$/Server/junqi/config/serverConfig.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+              <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hallServer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallServer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="10" column="5" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="10" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="junQiServer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiServer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -53,8 +60,8 @@
       <file leaf-file-name="CommonCfg.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="54">
+              <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -63,8 +70,18 @@
       <file leaf-file-name="common.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/junqi/config/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+            <state relative-caret-position="376">
+              <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hallMsgHandler.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="141" column="54" lean-forward="true" selection-start-line="141" selection-start-column="54" selection-end-line="141" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -74,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/Server/junqi/config.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -83,8 +100,8 @@
       <file leaf-file-name="start.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/junqi/start.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="324">
+              <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -103,7 +120,7 @@
       <file leaf-file-name="GameCfg.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Game/LuZhanQi/Common/GameCfg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="812">
+            <state relative-caret-position="999">
               <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
               <folding />
             </state>
@@ -146,6 +163,11 @@
       <find>readText</find>
       <find>startOpenServer</find>
       <find>readJson</find>
+      <find>EVENT_SEND_GAME_LIST</find>
+      <find>gameList</find>
+      <find>CommonCfg</find>
+      <find>Common</find>
+      <find>commonCfg</find>
     </findStrings>
     <dirStrings>
       <dir>D:\junqi\junqi\Server</dir>
@@ -168,14 +190,15 @@
         <option value="$PROJECT_DIR$/Server/junqi/gameServer/junQi/common/jq-com.js" />
         <option value="$PROJECT_DIR$/Client/junqi/assets/Scripts/Game/LuZhanQi/LzqDeskClick.ts" />
         <option value="$PROJECT_DIR$/Client/junqi/assets/Scripts/Game/LuZhanQi/LzqGameEvent.js" />
-        <option value="$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiServer.js" />
         <option value="$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiMsgHandler.js" />
-        <option value="$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js" />
         <option value="$PROJECT_DIR$/../bulid/server.js" />
-        <option value="$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js" />
-        <option value="$PROJECT_DIR$/Server/junqi/config.txt" />
-        <option value="$PROJECT_DIR$/Server/junqi/config/serverConfig.json" />
         <option value="$PROJECT_DIR$/Server/junqi/start.js" />
+        <option value="$PROJECT_DIR$/Server/junqi/config/serverConfig.json" />
+        <option value="$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js" />
+        <option value="$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js" />
+        <option value="$PROJECT_DIR$/Server/junqi/hallServer/hallServer.js" />
+        <option value="$PROJECT_DIR$/Server/junqi/config.txt" />
+        <option value="$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiServer.js" />
         <option value="$PROJECT_DIR$/Server/junqi/config/common.js" />
       </list>
     </option>
@@ -266,6 +289,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="hallServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junqi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junqi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junqi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junqi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junqi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junqi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junQi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -463,12 +534,13 @@
       <workItem from="1567060171645" duration="5727000" />
       <workItem from="1567147840791" duration="892000" />
       <workItem from="1567413547552" duration="323000" />
-      <workItem from="1567493669994" duration="5115000" />
+      <workItem from="1567493669994" duration="5434000" />
+      <workItem from="1567585572069" duration="941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98169000" />
+    <option name="totallyTimeSpent" value="99429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -527,7 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -556,7 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -578,7 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -600,20 +669,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/junqi/start.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -785,26 +846,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="58" column="50" lean-forward="false" selection-start-line="58" selection-start-column="50" selection-end-line="58" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6831">
-          <caret line="253" column="40" lean-forward="false" selection-start-line="253" selection-start-column="40" selection-end-line="253" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Game/LuZhanQi/LzqGameScene.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,7 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1296">
           <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,23 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Game/LuZhanQi/Common/GameCfg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
-          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/junqi/config/serverConfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -855,10 +882,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Game/LuZhanQi/Common/GameCfg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/junqi/start.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/junqi/config/serverConfig.json">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="141" column="54" lean-forward="true" selection-start-line="141" selection-start-column="54" selection-end-line="141" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -866,23 +917,39 @@
     <entry file="file://$PROJECT_DIR$/Server/junqi/config.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="18" />
+        <state relative-caret-position="54">
+          <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/junqi/config/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        <state relative-caret-position="376">
+          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
           <folding />
         </state>
       </provider>

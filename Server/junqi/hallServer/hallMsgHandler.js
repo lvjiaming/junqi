@@ -136,6 +136,9 @@ HallHandler.prototype.returnGameList = function (isAll, data) {
             if (datas.gameServer) {
                 for (let index in datas.gameServer) {
                     if (datas.gameServer[index].isopen) {
+                        if (commonCfg.IsForm) {
+                            datas.gameServer[index].ip = commonCfg.PublicNetIP;
+                        }
                         gameList.push(datas.gameServer[index]);
                     }
                 }

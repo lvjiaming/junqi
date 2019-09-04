@@ -12,6 +12,9 @@ module.exports = junQiServer =  function (config) {
         console.log(`this server has open(junQiServer)`);
         return;
     }
+    if (commonCfg.IsForm) {
+        config.ip = commonCfg.FormGameIP;
+    }
     console.log("start junQiServer");
     this.gameid = config.gameid;
     this.gameCfg = require("../common/lzqCfg");

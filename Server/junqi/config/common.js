@@ -23,6 +23,12 @@ module.exports = Common = {
         OFF_LINE: 3, // 离线状态
     },
 
+    IsForm: true,
+
+    FormGameIP: "172.17.163.68",
+
+    PublicNetIP: "59.110.221.90",
+
     EventId: {
         EVENT_ERR_MSG_REP: 0,   // 错误消息
 
