@@ -15,7 +15,7 @@ module.exports = junQiServer =  function (config) {
     if (commonCfg.IsForm) {
         config.ip = commonCfg.FormGameIP;
     }
-    console.log("start junQiServer");
+    console.log("start junQiServer: ", config);
     this.gameid = config.gameid;
     this.gameCfg = require("../common/lzqCfg");
     this.gameLayout = null; // 游戏的棋盘布局

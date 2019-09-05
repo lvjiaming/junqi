@@ -5,7 +5,6 @@ const ws = require("ws");
 const hallHanler = require("./hallMsgHandler");
 hallHander = null;
 module.exports = hallServer = function (config) {
-    console.log("start hallServer");
     if (commonCfg.IsForm) {
         config.ip = commonCfg.FormGameIP;
     }
@@ -13,6 +12,7 @@ module.exports = hallServer = function (config) {
         host: config.ip,
         port: config.port
     });
+    console.log("start hallServer", config);
     this.sessionList = [];  // 记录在线玩家的session
     // utils.sendEmail("1914460238@qq.com", "军旗", "验证码：11232", (info) => {
     //     console.log("发送成功", info);

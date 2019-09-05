@@ -82,6 +82,7 @@ HallHandler.prototype.login = function (ws, data) {
             if (user) {
                 if (user.password == data.password) {
                     user.online = true;
+                    // user.ws = ws;
                     userMgr.changeUser(user, (userlist) => {
                         this.userList = userlist;
                     });
@@ -96,8 +97,9 @@ HallHandler.prototype.login = function (ws, data) {
                         item.server.roomList.forEach((room) => {
                             room.userList.forEach((users) => {
                                 if (users.id == user.id) {
-                                    console.log("该玩家有房间");
+                                    console.log("该玩家有房间", serverList);
                                     setTimeout(() => {
+                                        users.ws = ws;
                                         // todo 断线情况，游戏列表存在未发送给客户端，在此放入serverList字段，通知客户端游戏服务器开启的配置
                                         gameServerMgr.getAllGameServerCfg((serverList) => {
                                             utils.sendMsg(ws, commonCfg.EventId.EVENT_SEND_ROOM_INFO, {gameid: item.gameid,

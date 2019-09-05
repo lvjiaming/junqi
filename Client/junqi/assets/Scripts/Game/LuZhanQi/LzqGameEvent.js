@@ -48,6 +48,7 @@ cc.Class({
             }
             case cc.hallEvent.EVENT_AGREE_QUIT_ROOM: {
                 cc.log("同意退出房间");
+                cc.lzqEventM.close();
                 cc.director.loadScene("HallScene.fire");
                 break;
             }
