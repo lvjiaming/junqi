@@ -132,7 +132,7 @@ utils.userInfoChangeToGameUserInfo = (userInfo) => {
             curNewInfo.push(info);
         });
     } else {
-        const gameUserInfo = {id: userInfo.id, name: userInfo.name, online: userInfo.online};
+        const gameUserInfo = {id: userInfo.id, name: userInfo.name, online: userInfo.online, state: userInfo.state || 0};
         curNewInfo = gameUserInfo;
     }
     return curNewInfo;

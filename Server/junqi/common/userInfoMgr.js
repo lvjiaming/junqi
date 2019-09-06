@@ -109,7 +109,7 @@ userInfoMgr.getUserBySessionId = (id, cb) => {
             }
             let getUser = null;
             for (let us in dataObj) {
-                if (dataObj[us] && dataObj[us].sessionId == id) {
+                if (dataObj[us] && dataObj[us].id == id) {
                     getUser = dataObj[us];
                 }
             }

@@ -21,6 +21,7 @@ serverConfig = null;
  */
 module.exports = Start = {
     start() {
+        initUserInfoJson();
         readJson(readText);
     },
     startHallServer() {
@@ -77,6 +78,29 @@ function readText(serverData) {
                     console.error("写入失败",err);
                 } else {
                     readJson(startOpenServer);
+                }
+            });
+        }
+    });
+}
+
+// 初始化玩家信息的json文件（主要初始化其在线状态）
+function initUserInfoJson() {
+    fs.readFile("./common/userInfo.json", (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            const dataStr = data.toString();
+            const datas = JSON.parse(dataStr);
+            for (let index in datas) {
+                const item = datas[index];
+                item.online = false;
+            }
+            fs.writeFile("./common/userInfo.json", JSON.stringify(datas), (err) => {
+                if (err) {
+                    console.error("写入失败",err);
+                } else {
+                    console.log("初始化玩家信息成功");
                 }
             });
         }

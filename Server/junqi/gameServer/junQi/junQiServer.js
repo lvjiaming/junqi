@@ -73,7 +73,7 @@ module.exports = junQiServer =  function (config) {
         newRoom.onStateChange = (state) => {
             newRoom.state = state;
             if (state == commonCfg.ROOM_STATE.GAME) {
-                cc.log("此房间开启");
+                console.log("此房间开启");
                 this.jqHandler.startGame(newRoom);
             }
         };

@@ -17,7 +17,7 @@ HallHandler.prototype.handler = function(ws, data) {
         }
         case commonCfg.EventId.EVENT_GET_GAME_LIST_REQ: {
             console.log("请求游戏列表");
-            this.returnGameList(false, data.msgData);
+            this.returnGameList(ws, false, data.msgData);
             break;
         }
         case commonCfg.EventId.EVENT_ENTER_ROOM_SEQ: {
@@ -81,6 +81,10 @@ HallHandler.prototype.login = function (ws, data) {
         userMgr.getUserByName(data.name, (user) => {
             if (user) {
                 if (user.password == data.password) {
+                    if (user.online == true) {
+                        utils.sendErrMsg(ws, "用户已登录，请勿重复登录！");
+                        return;
+                    }
                     user.online = true;
                     // user.ws = ws;
                     userMgr.changeUser(user, (userlist) => {
@@ -126,11 +130,11 @@ HallHandler.prototype.login = function (ws, data) {
         utils.sendErrMsg(ws, "请输入正确的用户名");
     }
 };
-HallHandler.prototype.returnGameList = function (isAll, data) {
+HallHandler.prototype.returnGameList = function (ws, isAll, data) {
     fs.readFile("./config/serverConfig.json", (err, data) => {
         if (err) {
             console.error(err);
-            utils.sendErrMsg(this.ws, "获取游戏列表失败");
+            utils.sendErrMsg(ws, "获取游戏列表失败");
         } else {
             const dataStr = data.toString();
             const datas = JSON.parse(dataStr);
@@ -150,7 +154,7 @@ HallHandler.prototype.returnGameList = function (isAll, data) {
                     utils.sendMsg(item, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
                 });
             } else {
-                utils.sendMsg(this.ws, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
+                utils.sendMsg(ws, commonCfg.EventId.EVENT_SEND_GAME_LIST, gameList);
             }
         }
     });
@@ -285,25 +289,98 @@ HallHandler.prototype.ready = function (ws, data) {
     userMgr.getUserByUserId(data.userid, (user) => {
         if (user) {
             console.log("找到用户");
+            const inRoom = getRoomById(data.userid);
+            if (inRoom) {
+                const userInfo = getUserByIdInRoom(data.userid, inRoom);
+                if (userInfo) {
+                    userInfo.state = commonCfg.USER_STATE.READY;
+                } else {
+                    console.log("未在其房间找到该玩家！");
+                }
+                let canStart = false;
+                if (inRoom.userList && inRoom.userList.length >= 2) {
+                    let allReady = true;
+                    inRoom.userList.forEach((item) => {
+                        if (item.state != commonCfg.USER_STATE.READY) {
+                            allReady = false;
+                        }
+                    });
+                    if (allReady) {
+                        canStart = true;
+                    }
+                }
+                inRoom.userList.forEach((item) => {
+                    utils.sendMsg(item.ws, commonCfg.EventId.EVENT_SET_USER_STATE, {userid: data.userid, state: commonCfg.USER_STATE.READY});
+                });
+                if (canStart) {
+                    console.log("一切准备就绪，可以开始游戏了");
+                    inRoom.onStateChange(commonCfg.ROOM_STATE.GAME);
+                }
 
+            } else {
+                console.log("未找到房间！");
+            }
         } else {
             console.log("用户不存在");
         }
     });
 };
+
+/**
+ *  根据id找到其所属房间
+ * @param id
+ * @param cb
+ * @returns {*}
+ */
 const getRoomById = function (id, cb) {
     const serverList = gameServerMgr.getGameServerByGameId();
+    let finRoom = null;
     serverList.forEach((item) => {
         const roomList = item.server.roomList;
         if (roomList) {
-            roomList.forEach((roomItem) => {
-                roomItem.userList.forEach((userItem) => {
-
-                });
-            });
+            for (let index1 = 0; index1 < roomList.length; index1++) {
+                const roomItem = roomList[index1];
+                let hasFind = false;
+                for (let index2 = 0; index2 < roomItem.userList.length; index2++) {
+                    const userItem = roomItem.userList[index2];
+                    if (userItem && userItem.id == id) {
+                        hasFind = true;
+                        break;
+                    }
+                }
+                if (hasFind) {
+                    finRoom = roomItem;
+                    break;
+                }
+            }
         }
     });
+    return finRoom;
 };
+
+/**
+ *  根据id找到房间内对应的玩家
+ */
+const getUserByIdInRoom = function (id, room) {
+    let userInfo = null;
+    if (room) {
+        const userList = room.userList;
+        if (userList) {
+            for (let index = 0; index < userList.length; index++) {
+                if (userList[index].id == id) {
+                    userInfo = userList[index];
+                    break;
+                }
+            }
+        } else {
+            console.log("此房间为空房间（userList为空）");
+        }
+    } else {
+        console.log("房间是空的！");
+    }
+    return userInfo;
+};
+
 module.exports = function (target, ws) {
     if (!this.hallHandle) {
         this.hallHandle = new HallHandler(target, ws);

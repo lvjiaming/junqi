@@ -3,8 +3,8 @@
  */
 module.exports = LzqCfg = {
     EVENT: { // 事件
-        EVENT_GAME_LAYOUT: 1,  // 游戏的布局（棋盘）
-
+        EVENT_GAME_LAYOUT: 1001,  // 游戏的布局（棋盘）
+        EVENT_GAME_START: 1002, // 开始游戏
     },
     SEAT_TYPE: { // 座位的类型
         BING_ZHAN: 1, // 兵站

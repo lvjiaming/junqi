@@ -3,7 +3,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-
+        _gameScene: "LzqGameScene",
     },
 
     onLoad () {
@@ -36,9 +36,12 @@ cc.Class({
         switch (event) {
             case cc.hallEvent.EVENT_SEND_ROOM_INFO: { // 房间信息
                 cc.log("房间信息：", data);
+                this.node.getComponent(this._gameScene).clearDesk();
+
                 break;
             }
             case cc.hallEvent.EVENT_SEND_GAME_INFO: { // 游戏信息
+                cc.log("游戏信息：", data);
                 break;
             }
             case cc.hallEvent.EVENT_USER_ENTER_ROOM: {  // 玩家加入房间
@@ -54,6 +57,15 @@ cc.Class({
             }
             case cc.hallEvent.EVENT_USER_QUIT_ROOM: {
                 cc.log("玩家退出房间: ", data);
+                break;
+            }
+            case cc.hallEvent.EVENT_SET_USER_STATE: {
+                cc.log("设置玩家信息：", data);
+                break;
+            }
+            case cc.lzqEvent.EVENT_GAME_START: {
+                cc.log("游戏开始：", data);
+                cc.comTip.show("开发未完成，开始个屁啊", 5);
                 break;
             }
         }

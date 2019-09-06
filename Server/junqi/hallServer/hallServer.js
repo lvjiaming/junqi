@@ -31,6 +31,7 @@ module.exports = hallServer = function (config) {
             hallHander.handler(ws, msgObj);
         });
         ws.on('close', () => {
+            console.log("有个玩家断开：", ws.sessionId);
             userInfoMgr.getUserBySessionId(ws.sessionId, (user) => {
                 if (user) {
                     user.online = false;

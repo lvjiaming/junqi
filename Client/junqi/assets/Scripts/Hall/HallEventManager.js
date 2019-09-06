@@ -48,5 +48,16 @@ HallEventManager.Event = {
     EVENT_AGREE_QUIT_ROOM: 16, // 同意退出房间
     EVENT_USER_QUIT_ROOM: 17, // 玩家退出房间
 };
+/**
+ *  公用的自定义事件
+ * @type {{}}
+ */
+HallEventManager.CUSTOM_EVENT = {
+    // a玩家的事件
+    PLAYER: {
+        INIT_PLAYER: "init_player", // 初始化玩家节点
+    },
+};
 cc.hallEvent = HallEventManager.Event;
 cc.hallEventM = HallEventManager.getInstance();
+cc.hallCusEvent = HallEventManager.CUSTOM_EVENT;

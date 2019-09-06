@@ -16,5 +16,11 @@ const CommonCfg = {
         GAME: 2,  // 游戏状态
         END: 3,  // 游戏结束状态
     },
+    USER_STATE: {
+        NONE: 0, // 无状态
+        READY: 1, // 准备状态
+        NO_READY: 2, // 未准备的状态
+        OFF_LINE: 3, // 离线状态
+    },
 };
 cc.commonCfg = CommonCfg;

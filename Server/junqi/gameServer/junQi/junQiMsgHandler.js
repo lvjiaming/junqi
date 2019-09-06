@@ -5,7 +5,7 @@ const junqiMsgHandler = function (target) {
     this.target = target;
 };
 junqiMsgHandler.prototype.handler = function (ws, data) {
-    switch (utils.getEventId(data.msgId, this.target.gameid)) {
+    switch (data.msgId) {
         case this.target.gameCfg.EVENT.EVENT_GAME_LAYOUT: {
             // console.log(data.msgData);
             break;
@@ -13,7 +13,9 @@ junqiMsgHandler.prototype.handler = function (ws, data) {
     }
 };
 junqiMsgHandler.prototype.startGame = function (room) {
-
+    room.userList.forEach((item) => {
+        utils.sendMsg(item.ws, this.target.gameCfg.EVENT.EVENT_GAME_START);
+    });
 };
 module.exports = function (target) {
     if (!this.jqHandler) {
