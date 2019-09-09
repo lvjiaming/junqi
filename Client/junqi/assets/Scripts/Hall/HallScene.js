@@ -70,13 +70,12 @@ cc.Class({
                 cc.log("进入房间回复", data);
                 break;
             }
-            case cc.hallEvent.EVENT_SEND_ROOM_INFO: { // 发送房间信息
-                cc.log("发送房间信息", data);
+            case cc.hallEvent.EVENT_CAN_ENTER_ROOM: { // 进入房间同意入口
+                cc.hallEventM.setEventLockState(true);
                 if (data.serverList) {
                     cc.gameMgr.updateSererList(data.serverList);
                 }
                 cc.gameMgr.changeToGameScene(data.gameid, data);
-                break;
             }
         }
     },

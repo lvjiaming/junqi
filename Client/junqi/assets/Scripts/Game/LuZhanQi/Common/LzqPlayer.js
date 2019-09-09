@@ -38,7 +38,7 @@ cc.Class({
     unRegisterEvent() {
         this.node.off(cc.lzqCusEvent.PLAYER_EVENT.STATE_CHANGE, this.stateChange, this);
         this.node.off(cc.lzqCusEvent.PLAYER_EVENT.GAME_START, this.gameStart, this);
-        this.node.off(cc.lzqCusEvent.PLAYER.INIT_PLAYER, this.initPlayer, this);
+        this.node.off(cc.hallCusEvent.PLAYER.INIT_PLAYER, this.initPlayer, this);
     },
 
     initPlayer() {
@@ -66,6 +66,10 @@ cc.Class({
                 break;
             }
             case cc.commonCfg.USER_STATE.NO_READY: {
+                str = "未准备";
+                break;
+            }
+            case cc.commonCfg.USER_STATE.NONE: {
                 str = "未准备";
                 break;
             }

@@ -54,5 +54,7 @@ module.exports = Common = {
         EVENT_QUIT_ROOM_REQ: 15, // 退出房间的请求
         EVENT_AGREE_QUIT_ROOM: 16, // 同意退出房间
         EVENT_USER_QUIT_ROOM: 17, // 玩家退出房间
+
+        EVENT_CAN_ENTER_ROOM: 18, // 玩家可以进入房间（旨在将玩家放入房间，此时唯一通道）
     },
 };

@@ -89,7 +89,6 @@ const GameMgr = cc.Class({
                     switch (gameid) {
                         case cc.commonCfg.GAME_ID.GAME_JUNQI: {
                             cc.lzq = {};
-                            cc.lzq.room = new cc.lzqRoom(data);
                             break;
                         }
                     }

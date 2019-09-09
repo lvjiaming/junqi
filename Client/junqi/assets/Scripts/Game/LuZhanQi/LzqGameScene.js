@@ -21,6 +21,7 @@ cc.Class({
 
 
     onLoad () {
+        this._super();
         this.initPlayerArr();
         cc.lzq.gameControl = new cc.lzq_gameControl(this);
         cc.lzq.gameControl.createMap();
@@ -30,6 +31,9 @@ cc.Class({
         // cc.lzq.gameControl.createChessBack();
         // cc.lzqEventM.startEvent(cc.lzqEvent.EVENT_GAME_LAYOUT, cc.lzq.gameControl.getGameLayout());
         // cc.log(cc.lzq.gameControl.getGameLayout());
+    },
+    start () {
+
     },
 
     /**
@@ -48,21 +52,27 @@ cc.Class({
     },
 
     /**
-     *  玩家绑定信息
-     */
-    playerNodeBindInfo(info) {
-        if (info.userid == cc.user.getUserId()) {
-            this._playerNodeArr[0].info = info;
-        } else {
-            this._playerNodeArr[1].info = info;
-        }
-    },
-
-    /**
      *  初始化房间
      */
     initRoom(data) {
-        data.userList.forEach(() => {})
+        this._super(data);
+        this._playerNodeArr.forEach((item) => {
+            if (item.info) {
+                item.playerEvent(cc.lzqCusEvent.PLAYER_EVENT.STATE_CHANGE, item.info.state);
+            } else {
+                item.playerEvent(cc.lzqCusEvent.PLAYER_EVENT.STATE_CHANGE, -1);
+            }
+        });
+    },
+
+    /**
+     *  玩家状态变化
+     */
+    playerStateChange(data) {
+        const user = this.getUserById(data.userid);
+        if (user) {
+            user.playerEvent(cc.lzqCusEvent.PLAYER_EVENT.STATE_CHANGE, data.state);
+        }
     },
 
     start () {

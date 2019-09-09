@@ -13,6 +13,11 @@ const GameEventManager = cc.Class({
     _reconnectTimer: null,  // 重连的定时器
 
     _curListen: null,  // 当前监听的对象（会发送一系列回调函数）
+
+    _isLock: false, // 是否上锁（协议阻塞）
+    _eventCache: null, // 阻塞的消息列表
+
+    _name: null,
     // statics: {
     //     getInstance() {
     //         if (!this.gameEventManager) {
@@ -31,6 +36,8 @@ const GameEventManager = cc.Class({
         this._reconnectTimes = 1000;
         this._isSelfClose = false;
         this._reconnectTimer = null;
+        this._eventCache = [];
+        this._isLock = false;
     },
     /**
      *  监听对象（会发送一系列特殊回调）
@@ -40,6 +47,13 @@ const GameEventManager = cc.Class({
      */
     setListen(target) {
         this._curListen = target;
+    },
+
+    /**
+     *  设置名字
+     */
+    setName(str) {
+        this._name = str;
     },
     /**
      *  移除监听
@@ -74,7 +88,12 @@ const GameEventManager = cc.Class({
         };
         this.gameSocket.onmessage = function (data) {
             data = JSON.parse(data.data);
-            self.onMsg(data.msgId, data.msgData);
+            cc.log("this._isLock: ", self._isLock);
+            if (self._isLock) {
+                self._eventCache.push({msgId: data.msgId, msgData: data.msgData});
+            } else {
+                self.onMsg(data.msgId, data.msgData);
+            }
             return;
             //  todo 以下是用protobuf传输数据写法
             if (cc.sys.isNative) {
@@ -148,5 +167,31 @@ const GameEventManager = cc.Class({
         let msgId = bytes[0];  //  协议id放在uint8Array的第一位
         const body = new Uint8Array(data, 1, data.byteLength - 1);
         this.onMsg(msgId, body);
+    },
+
+    /**
+     *  设置协议锁状态
+     */
+    setEventLockState(state) {
+        cc.log("协议锁开关: ", state);
+        this._isLock = state;
+        if (!state) {
+            this.openCache();
+        }
+    },
+
+    /**
+     *  放开缓存
+     */
+    openCache() {
+        for (let index = this._eventCache.length - 1; index >= 0; index--) {
+            if (this._isLock) {
+                break;
+            } else {
+                const data = this._eventCache[index];
+                this.onMsg(data.msgId, data.msgData);
+                this._eventCache.splice(index, 1);
+            }
+        }
     },
 });

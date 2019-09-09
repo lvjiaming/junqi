@@ -106,9 +106,11 @@ HallHandler.prototype.login = function (ws, data) {
                                         users.ws = ws;
                                         // todo 断线情况，游戏列表存在未发送给客户端，在此放入serverList字段，通知客户端游戏服务器开启的配置
                                         gameServerMgr.getAllGameServerCfg((serverList) => {
+                                            utils.sendMsg(ws, commonCfg.EventId.EVENT_CAN_ENTER_ROOM, {gameid: item.gameid,
+                                                serverList: serverList,
+                                            });
                                             utils.sendMsg(ws, commonCfg.EventId.EVENT_SEND_ROOM_INFO, {gameid: item.gameid,
                                                 userlist: utils.userInfoChangeToGameUserInfo(room.userList),
-                                                serverList: serverList,
                                             });
                                         });
                                     }, 800);
@@ -207,6 +209,7 @@ HallHandler.prototype.userEnterRoom = function (ws, data) {
                 console.log(server.roomList);
                 if (curRoom) {
                     curRoom.userList.forEach((item) => {
+                        utils.sendMsg(ws, commonCfg.EventId.EVENT_CAN_ENTER_ROOM, {gameid: data.gameid});
                         if (item.id == data.userid) {
                             utils.sendMsg(item.ws, commonCfg.EventId.EVENT_SEND_ROOM_INFO, {gameid: data.gameid, userlist: utils.userInfoChangeToGameUserInfo(curRoom.userList)});
                         } else {

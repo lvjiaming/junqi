@@ -18,7 +18,9 @@ cc.Class({
         cc.lzqEventM.removeListen();
     },
     start () {
-
+        cc.log("加载完成");
+        cc.lzqEventM.setEventLockState(false);
+        cc.hallEventM.setEventLockState(false);
     },
     /**
      *  重连失败的监听
@@ -36,8 +38,9 @@ cc.Class({
         switch (event) {
             case cc.hallEvent.EVENT_SEND_ROOM_INFO: { // 房间信息
                 cc.log("房间信息：", data);
+                cc.lzq.room = new cc.lzqRoom(data);
                 this.node.getComponent(this._gameScene).clearDesk();
-
+                this.node.getComponent(this._gameScene).initRoom(data);
                 break;
             }
             case cc.hallEvent.EVENT_SEND_GAME_INFO: { // 游戏信息
@@ -61,6 +64,7 @@ cc.Class({
             }
             case cc.hallEvent.EVENT_SET_USER_STATE: {
                 cc.log("设置玩家信息：", data);
+                this.node.getComponent(this._gameScene).playerStateChange(data);
                 break;
             }
             case cc.lzqEvent.EVENT_GAME_START: {

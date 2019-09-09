@@ -16,10 +16,6 @@ const DeskComOpt = cc.Class({
 
     },
 
-    start () {
-
-    },
-
     /**
      *  绑定玩家事件
      */
@@ -34,10 +30,46 @@ const DeskComOpt = cc.Class({
     /**
      *  设置准备按钮的状态
      */
-    setReadyNodeState() {
+    setReadyNodeState(state) {
         if (this.readyBtn) {
             this.readyBtn.active = state;
         }
+    },
+
+    /**
+     *  玩家绑定信息
+     */
+    playerNodeBindInfo(info) {
+        if (info.id == cc.user.getUserId()) {
+            this._playerNodeArr[0].info = info;
+        } else {
+            this._playerNodeArr[1].info = info;
+        }
+    },
+
+    /**
+     *  初始化房间
+     */
+    initRoom(data) {
+        data.userlist.forEach((item) => {
+            this.playerNodeBindInfo(item);
+            if (item.id == cc.user.getUserId() && item.state == cc.commonCfg.USER_STATE.READY) {
+                this.setReadyNodeState(false);
+            }
+        });
+    },
+
+    /**
+     *  通过id获取玩家
+     */
+    getUserById(id) {
+        let user = null;
+        this._playerNodeArr.forEach((item) => {
+            if (item.info && item.info.id == id) {
+                user = item;
+            }
+        });
+        return user;
     },
 
     /**

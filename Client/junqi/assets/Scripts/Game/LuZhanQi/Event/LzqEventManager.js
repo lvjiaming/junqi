@@ -6,6 +6,7 @@ const LzqEventManager = cc.Class({
         getInstance() {
             if (!this.lzqEventManager) {
                 this.lzqEventManager = new LzqEventManager();
+                this.lzqEventManager.setName("Lzq")
             }
             return this.lzqEventManager;
         },
