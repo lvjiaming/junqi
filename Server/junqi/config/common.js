@@ -29,6 +29,14 @@ module.exports = Common = {
 
     PublicNetIP: "59.110.221.90",
 
+    // 数据库的配置
+    DbConfig: {
+        host: '59.110.221.90',         //地址
+        user: 'root',              //用户名
+        password: 'lvjiaming.!@3',              //密码
+        database: 'mydb'         //要链接的数据库名字
+    },
+
     EventId: {
         EVENT_ERR_MSG_REP: 0,   // 错误消息
 
