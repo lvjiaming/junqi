@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62062026-f868-4f16-963f-0845191d5f23" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Server/junqi/mysql.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/config/common.js" afterPath="$PROJECT_DIR$/Server/junqi/config/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/package-lock.json" afterPath="$PROJECT_DIR$/Server/junqi/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js" afterPath="$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/junqi/settings/services.json" afterPath="$PROJECT_DIR$/Client/junqi/settings/services.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/common/userInfo.json" afterPath="$PROJECT_DIR$/Server/junqi/common/userInfo.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/common/userInfoMgr.js" afterPath="$PROJECT_DIR$/Server/junqi/common/userInfoMgr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/mysql.js" afterPath="$PROJECT_DIR$/Server/junqi/mysql.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/junqi/start.js" afterPath="$PROJECT_DIR$/Server/junqi/start.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,7 +39,7 @@
       <file leaf-file-name="GameEventManager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Event/GameEventManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
+            <state relative-caret-position="216">
               <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
@@ -57,28 +59,38 @@
       <file leaf-file-name="hallMsgHandler.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="213" column="89" lean-forward="false" selection-start-line="213" selection-start-column="69" selection-end-line="213" selection-end-column="89" />
+            <state relative-caret-position="459">
+              <caret line="95" column="82" lean-forward="true" selection-start-line="95" selection-start-column="82" selection-end-line="95" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/junqi/config/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+            <state relative-caret-position="270">
+              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysql.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CommonCfg.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysql.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/junqi/mysql.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+            <state relative-caret-position="108">
+              <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -87,8 +99,18 @@
       <file leaf-file-name="userInfoMgr.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/junqi/common/userInfoMgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="30" />
+            <state relative-caret-position="1566">
+              <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="start.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/junqi/start.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -105,13 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>node</find>
-      <find>EVENT_SET_USER_STATE</find>
-      <find>EVENT_USER_ONLINE_CHANGE</find>
-      <find>_isSelfClose</find>
-      <find>userEnterRoom</find>
-      <find>USER_STATE</find>
-      <find>ready</find>
       <find>msgObj</find>
       <find>startOpenServer</find>
       <find>startHallServer</find>
@@ -135,6 +150,13 @@
       <find>EVENT_SEND_ROOM_INFO</find>
       <find>playerStateChange</find>
       <find>handleData</find>
+      <find>removeUser</find>
+      <find>updateUserInfo</find>
+      <find>insertUser</find>
+      <find>getUserByName</find>
+      <find>userInfo.js</find>
+      <find>delUserById</find>
+      <find>initUserInfoJson</find>
     </findStrings>
     <dirStrings>
       <dir>D:\junqi\junqi\Server</dir>
@@ -153,9 +175,7 @@
         <option value="$PROJECT_DIR$/Server/junqi/gameServer.js" />
         <option value="$PROJECT_DIR$/Client/junqi/assets/Scripts/Game/LuZhanQi/LzqGameControl.js" />
         <option value="$PROJECT_DIR$/Server/junqi/config/serverConfig.json" />
-        <option value="$PROJECT_DIR$/Server/junqi/start.js" />
         <option value="$PROJECT_DIR$/Server/junqi/hallServer/hallServer.js" />
-        <option value="$PROJECT_DIR$/Server/junqi/common/userInfoMgr.js" />
         <option value="$PROJECT_DIR$/Server/junqi/common/userInfo.json" />
         <option value="$PROJECT_DIR$/Server/junqi/gameServer/junQi/junQiServer.js" />
         <option value="$PROJECT_DIR$/Server/junqi/common/utils.js" />
@@ -174,8 +194,10 @@
         <option value="$PROJECT_DIR$/Client/junqi/assets/Scripts/Game/LuZhanQi/Common/LzqPlayer.js" />
         <option value="$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js" />
         <option value="$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js" />
-        <option value="$PROJECT_DIR$/Server/junqi/config/common.js" />
         <option value="$PROJECT_DIR$/Server/junqi/mysql.js" />
+        <option value="$PROJECT_DIR$/Server/junqi/common/userInfoMgr.js" />
+        <option value="$PROJECT_DIR$/Server/junqi/start.js" />
+        <option value="$PROJECT_DIR$/Server/junqi/config/common.js" />
       </list>
     </option>
   </component>
@@ -609,8 +631,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -619,7 +641,7 @@
     <property name="js.eslint.eslintPackage" value="C:\Users\Administrator\AppData\Roaming\npm\node_modules\eslint" />
     <property name="js.eslint.nodeInterpreter" value="project" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/git_pro/ddz_game/ddz_server_node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -784,11 +806,12 @@
       <workItem from="1568015618615" duration="6367000" />
       <workItem from="1569466112280" duration="1710000" />
       <workItem from="1569551463274" duration="7803000" />
+      <workItem from="1569723248790" duration="3215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143324000" />
+    <option name="totallyTimeSpent" value="146539000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -817,11 +840,11 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1051,7 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
           <caret line="28" column="94" lean-forward="false" selection-start-line="28" selection-start-column="94" selection-end-line="28" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1109,7 +1131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1944">
           <caret line="72" column="28" lean-forward="false" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,7 +1143,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Event/GameEventManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
+        <state relative-caret-position="216">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
@@ -1140,31 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="60" column="40" lean-forward="false" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="213" column="89" lean-forward="false" selection-start-line="213" selection-start-column="69" selection-end-line="213" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/junqi/start.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1176,26 +1172,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/junqi/config/common.js">
+    <entry file="file://$PROJECT_DIR$/Server/junqi/hallServer/hallMsgHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        <state relative-caret-position="459">
+          <caret line="95" column="82" lean-forward="true" selection-start-line="95" selection-start-column="82" selection-end-line="95" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/junqi/common/userInfoMgr.js">
+    <entry file="file://$PROJECT_DIR$/Client/junqi/assets/Scripts/Common/CommonCfg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="30" />
+        <state relative-caret-position="675">
+          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/junqi/mysql.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+        <state relative-caret-position="108">
+          <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/junqi/common/userInfoMgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/junqi/start.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/junqi/config/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
           <folding />
         </state>
       </provider>
